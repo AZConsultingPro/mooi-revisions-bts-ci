@@ -39,7 +39,6 @@ h3{font-size:1.04rem;line-height:1.35}
 .hero .button:not(.primary){background:#214850;border-color:#6c8d86;color:#fff}
 .hero .button:hover{filter:brightness(1.08)}
 .hero-content{position:relative;z-index:1}
-.hero-art{display:none}
 .kicker,.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
 .hero .kicker{color:#ffd58b;margin-bottom:14px}
 .eyebrow{color:var(--green)}
@@ -98,7 +97,7 @@ legend{font-weight:800;margin-bottom:8px}
 .flash p{margin:0;color:#e2efe7}
 footer{border-top:1px solid var(--line);padding:16px 0 24px;color:var(--muted);font-size:.86rem}
 footer .frame{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-@media(min-width:650px){.frame{width:min(1120px,calc(100% - 64px))}main{padding-top:33px}.hero{padding:36px}.split{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}.panel,.route,.question{padding:21px}.hero-art{display:grid;position:absolute;right:3%;bottom:16%;width:36%;transform:skewY(-8deg);grid-template-columns:repeat(3,1fr);gap:7px;opacity:.48}.hero-art i{height:38px;background:repeating-linear-gradient(90deg,#d2e6db 0 2px,#2f6964 2px 10px);border:2px solid #a9cbc0;border-radius:4px}.hero-art i:nth-child(3n){background:repeating-linear-gradient(90deg,#ffcb7e 0 2px,#a87537 2px 10px)}}
+@media(min-width:650px){.frame{width:min(1120px,calc(100% - 64px))}main{padding-top:33px}.hero{padding:36px}.split{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}.panel,.route,.question{padding:21px}}
 .media-intro{padding:clamp(20px,5vw,44px);border-radius:24px;background:linear-gradient(115deg,#14363d,#236856);color:white}
 .media-intro p{max-width:62ch;color:#eef7ef}.media-intro .eyebrow{color:#ffd58b}.media-intro h1{font-size:clamp(2rem,5vw,3.5rem)}
 .media-intro button{margin-top:10px;background:#ffd58b;border-color:#ffd58b;color:#203a34}
@@ -128,6 +127,102 @@ footer .frame{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px
 .media-enter{animation:media-enter .3s ease-out}
 @keyframes media-enter{from{opacity:.42;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.media-enter{animation:none}}
+/* Direction artistique et mise en page */
+:root{--ink:#123438;--muted:#4d625e;--paper:#f7f3eb;--line:#e6ddd0;--green:#145b50;--mint:#e0efe6;--navy:#123e43;--orange:#ffd18c;--radius:20px}
+body{font-family:"DM Sans",Inter,system-ui,sans-serif;background:var(--paper)}
+header{background:#fcfaf6}
+.top{min-height:70px}
+.brand{font-size:1.02rem;letter-spacing:-.02em}
+.mark{width:38px;height:38px;background:#12454a;border:1px solid #2a6567;border-radius:12px;color:#ffd18c;font-size:1.04rem}
+.signature{font-size:.78rem;line-height:1.3;text-align:right}
+nav{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;overflow:visible;padding-block:0 8px}
+nav>a,.module-menu>summary{justify-content:center;min-height:44px;padding:6px 3px;border-radius:8px;font-size:.78rem;font-weight:700}
+nav a:hover,.module-menu>summary:hover{background:#eee9de;color:var(--ink)}
+nav a[aria-current=page],.module-menu>summary.module-active{background:#dcebe0;color:#164c42}
+.module-menu{position:relative;min-width:0;margin:0;padding:0;border:0;border-radius:8px;background:transparent}
+.module-menu>summary{display:flex;align-items:center;gap:5px;list-style:none;color:var(--muted)}
+.module-menu>summary::-webkit-details-marker{display:none}
+.module-menu>summary::after{content:"";width:6px;height:6px;border-bottom:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg);margin:-3px 0 0 1px}
+.module-menu[open]>summary::after{transform:rotate(225deg);margin-top:3px}
+.module-menu[open]{z-index:6}
+.module-links{position:absolute;inset-inline-end:0;top:calc(100% + 5px);width:min(224px,80vw);padding:6px!important;background:#fffdf9;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px #13363e23}
+.module-links a{min-height:44px;padding:8px 12px}
+main{padding-block:18px 42px}
+h1,h2{font-family:"Bricolage Grotesque","DM Sans",Inter,system-ui,sans-serif}
+h2{letter-spacing:-.032em}
+.hero{display:grid;position:relative;grid-template-columns:minmax(0,1fr);padding:0;min-height:0;border-radius:24px;isolation:isolate;background:#103c42;color:#fff}
+.hero-content{display:flex;flex-direction:column;justify-content:center;padding:28px 22px 24px}
+.hero h1{font-size:clamp(2.65rem,7vw,5.45rem);max-width:9ch;line-height:.98;letter-spacing:-.064em;margin:0 0 14px}
+.hero p{max-width:36ch;color:#e4efe9;margin-bottom:0}
+.hero .kicker{color:#ffd18c;letter-spacing:.105em;margin:0 0 13px}
+.hero .actions{margin-top:20px;gap:8px}
+.hero .button{border-radius:12px;padding:8px 14px}
+.hero .button:not(.primary){background:#234d52;border-color:#789393}
+.hero :focus-visible{outline-color:#ffd18c}
+.hero-image{position:relative;overflow:hidden;min-height:145px;background:#285b5a}
+.hero-image img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 56%}
+.section{margin-top:29px}
+.study-section>h2,.section>h2{margin-bottom:13px}
+.study-grid,.practice-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr))}
+.route,.panel,.stat,.question,details:not(.module-menu){border-color:var(--line)}
+.route{position:relative}
+.study-route{display:grid;align-content:start;justify-items:start;gap:7px;padding:18px;min-height:160px;border-color:#d5e0d7;background:#e8f0e8}
+.study-audio{border-color:#e5d8c7;background:#f7ead8}
+.study-load{border-color:#d9e0e6;background:#e9eff4}
+.study-route:hover,.practice-route:hover{border-color:#568476;background:#fffefa}
+.study-route h3,.practice-route h3{margin:0;font-size:1.12rem;letter-spacing:-.018em}
+.study-route p,.practice-route p{margin:0;font-size:.92rem}
+.study-icon{display:block;position:relative;width:37px;height:37px;border-radius:11px;background:#17685a;color:white;margin-bottom:2px}
+.study-audio .study-icon{background:#8b4b29}.study-load .study-icon{background:#275672}
+.study-icon::before,.study-icon::after{content:"";position:absolute}
+.icon-visual::before{inset:10px 8px;border:1.8px solid currentColor;border-radius:3px}
+.icon-visual::after{width:7px;height:7px;border-left:1.8px solid currentColor;border-top:1.8px solid currentColor;transform:rotate(45deg);left:15px;top:15px}
+.icon-audio::before{inset:9px 9px 11px;border:2px solid currentColor;border-bottom:0;border-radius:10px 10px 0 0}
+.icon-audio::after{width:4px;height:8px;left:9px;top:19px;border-radius:2px;background:currentColor;box-shadow:15px 0 currentColor}
+.icon-load::before{width:15px;height:10px;left:11px;top:10px;border:1.8px solid currentColor;border-radius:2px}
+.icon-load::after{width:19px;height:2px;left:9px;top:25px;background:currentColor;box-shadow:0 3px currentColor}
+.route-action{color:#154f45;font-weight:750;margin-top:2px;font-size:.9rem}
+.practice-route{min-height:92px;padding:15px 38px 15px 17px;background:#fffcf7}
+.practice-route p{margin-top:4px}
+.route-arrow-mark{position:absolute;top:14px;right:16px;color:#487366;font-weight:750}
+.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.stat{padding:12px 9px;font-size:.77rem;line-height:1.3;background:#fffdf8}
+.stat strong{margin-bottom:4px;font-size:1.35rem}
+.page-title{margin-bottom:20px;padding:17px 18px;background:#eee8dc;border:1px solid var(--line);border-radius:18px}
+.page-title h1{line-height:1.05;margin-bottom:9px}
+.page-title p:last-child{margin:0}
+.panel,.question{background:#fffefa}
+.question h2{line-height:1.35}
+.pick{min-height:52px;cursor:pointer}
+.pick:has(:disabled){cursor:default}
+.pick:has(:focus-visible){outline:2px solid #9a5523;outline-offset:2px}
+footer{background:#f4eee3}
+@media(max-width:460px){
+ .study-grid{grid-template-columns:1fr}
+ .study-route{grid-template-columns:37px minmax(0,1fr);min-height:0;column-gap:12px;row-gap:4px;padding:14px}
+ .study-icon{grid-row:1/span 3;margin:0}
+ .study-route p,.study-route .route-action{grid-column:2}
+}
+@media(max-width:360px){
+ nav{gap:2px}
+ nav>a,.module-menu>summary{font-size:.71rem;padding-inline:0}
+}
+@media(min-width:660px){
+ nav{display:flex;gap:6px;padding-block:0 10px}
+ nav>a,.module-menu>summary{font-size:.92rem;padding-inline:14px}
+ .module-links{inset-inline-end:auto;inset-inline-start:0}
+ main{padding-top:25px}
+ .hero{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);min-height:350px}
+ .hero-content{padding:clamp(25px,4.6vw,56px)}
+ .hero-image img{object-position:center center}
+ .section{margin-top:36px}
+ .study-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+ .study-route{padding:21px}
+ .practice-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+ .practice-route{padding:16px 40px 16px 18px}
+ .stat{padding:13px 17px;font-size:.9rem}
+ .page-title{padding:21px 24px}
+}
 </style>
 </head>
 <body>
@@ -626,14 +721,19 @@ const pages = {
  chapitre1:'Chapitre 1', ecouter:'Écouter', sources:'Sources et limites', 'sur-mesure':'Applications sur mesure'
 };
 const exercises = {diagnostic:'diagnostic',entrainement:'training',cas:'cases',partiel:'exam'};
-const routes = [
- ['ecouter','Réviser aux écouteurs','Quatre capsules audio avec des cas concrets et des pauses pour réfléchir.'],
- ['cours','Les fiches de cours','Navires, conteneurs, FCL/LCL et chargement.'],
- ['atelier','Atelier de palettisation','Compare les orientations et visualise un plan de couche.'],
- ['entrainement','Mémorisation active','Cartes mémoire, associations, réponses courtes et calculs.'],
- ['cas','Situations professionnelles','Prends une décision d’expédition et justifie-la.'],
- ['partiel','Partiel blanc','25 minutes, barème sur 20 et corrigé détaillé.'],
- ['chapitre1','Consolidation du chapitre 1','Retrouve les trois flux, les acteurs et les critères de choix.']
+const mainModules = ['accueil','diagnostic','cours','ecouter'];
+const extraModules = ['entrainement','atelier','cas','partiel','express','chapitre1'];
+const studyRoutes = [
+ ['cours/visuels','Comprendre en images','Compare les conteneurs et visualise les trajets FCL et LCL.','visual','Voir les infographies'],
+ ['ecouter','Réviser aux écouteurs','Quatre dialogues avec une pause pour réfléchir avant la réponse.','audio','Écouter les capsules'],
+ ['atelier','Tester un chargement','Change les dimensions et compare les orientations de tes colis.','load','Ouvrir le simulateur']
+];
+const practiceRoutes = [
+ ['entrainement','Entraînement','Cartes mémoire, associations, QCM et calculs.'],
+ ['cas','Cas pratiques','Choisis une solution d’expédition et justifie-la.'],
+ ['partiel','Partiel blanc','25 minutes, barème sur 20 et corrigé.'],
+ ['express','Révision express','Relis les cinq repères essentiels en quelques minutes.'],
+ ['chapitre1','Chapitre 1','Les trois flux, l’amont, l’aval et le choix du transporteur.']
 ];
 const fr = new Intl.NumberFormat('fr-FR',{maximumFractionDigits:3});
 const pct = n => Math.round(n*100)+' %';
@@ -649,14 +749,23 @@ let lastRoute = '';
 let lastCourseReturn = '';
 const flashcards = [...Object.entries(lexicon),...express.filter(([label])=>label==='Palette ISO')];
 
+function moduleNavigation(active) {
+ const item = id=>`<a href="#${id}" ${active===id?'aria-current="page"':''}>${pages[id]}</a>`;
+ return mainModules.map(item).join('')+
+  `<details class="module-menu"><summary aria-label="Plus de modules"${extraModules.includes(active)?' class="module-active"':''}>Plus</summary>
+  <div class="module-links">${extraModules.map(item).join('')}</div></details>`;
+}
 function dashboard() {
  const records = Object.values(state.records);
  const tried = records.length;
  const full = records.filter(r=>r.last===1).length;
  const topics = rankedTopics();
  const progress = topics.map(({topic,tested,score})=>[groups[topic],tested ? fr.format(tested) : '0', tested ? pct(score) : 'À découvrir']);
- return `<section class="hero"><div class="hero-content"><p class="kicker">BTS Commerce international · 12 novembre 2026</p><h1>Cap sur le partiel</h1><p>Révise le transport maritime, entraîne-toi à choisir le bon conteneur et refais les calculs de palettisation.</p><div class="actions">${link('diagnostic','Faire le diagnostic',true)}${link('ecouter','Réviser aux écouteurs')}${link('cours/visuels','Voir les infographies')}</div></div><div class="hero-art" aria-hidden="true">${'<i></i>'.repeat(9)}</div></section>
- <section class="section"><h2>Mes parcours</h2><div class="grid cards">${routes.map(([id,name,desc])=>`<a class="route" href="#${id}"><h3>${name}</h3><p>${desc}</p><strong>Ouvrir <span aria-hidden="true">→</span></strong></a>`).join('')}</div></section>
+ const diagnostic=state.rounds.diagnostic;
+ const diagnosticLabel=diagnostic?.submitted?'Voir mon diagnostic':diagnostic?'Reprendre le diagnostic':'Faire le diagnostic';
+ return `<section class="hero"><div class="hero-content"><p class="kicker">BTS Commerce international · 12 novembre 2026</p><h1>Cap sur le partiel</h1><p>Révise le transport maritime, les conteneurs et la palettisation.</p><div class="actions">${link('diagnostic',diagnosticLabel,true)}${link('partiel','Partiel blanc')}</div></div><div class="hero-image"><img src="assets/terminal-maritime.jpg" width="840" height="630" alt="" fetchpriority="high"></div></section>
+ <section class="section study-section"><h2>Choisis ton mode de révision</h2><div class="grid study-grid">${studyRoutes.map(([id,name,desc,icon,action])=>`<a class="route study-route study-${icon}" href="#${id}"><span class="study-icon icon-${icon}" aria-hidden="true"></span><h3>${name}</h3><p>${desc}</p><span class="route-action">${action} <span aria-hidden="true">→</span></span></a>`).join('')}</div></section>
+ <section class="section"><h2>S’entraîner pour le partiel</h2><div class="grid practice-grid">${practiceRoutes.map(([id,name,desc])=>`<a class="route practice-route" href="#${id}"><h3>${name}</h3><p>${desc}</p><span class="route-arrow-mark" aria-hidden="true">↗</span></a>`).join('')}</div></section>
  <section class="section" id="progression"><h2>Ma progression</h2><div class="stats"><div class="stat"><strong>${tried} / ${Object.keys(bank).length}</strong>Exercices corrigés</div><div class="stat"><strong>${full}</strong>Dernières réponses entièrement justes</div><div class="stat"><strong>${tried-full}</strong>Exercices à retravailler</div></div>
  <div class="panel section">${table('Progression par notion',['Notion','Exercices corrigés','Réussite'],progress)}<p class="source">Réussite par notion calculée sur la dernière correction de chaque exercice. Les associations peuvent rapporter une fraction. Les réponses rédigées comptent après autoévaluation.</p>
  <button id="reset">Réinitialiser ma progression</button><p id="reset-note" role="status"></p></div></section>`;
@@ -954,8 +1063,7 @@ function render() {
  const key=exercises[id];
  const round=key?roundFor(key):null;
  if(key==='exam' && round && !round.submitted && Date.now()>=round.deadline) submitRound(key,true);
- nav.innerHTML=Object.entries(pages).filter(([name])=>name!=='sources' && name!=='sur-mesure').map(([name,label])=>`<a href="#${name}" ${id===name?'aria-current="page"':''}>${label}</a>`).join('');
- nav.querySelector('[aria-current="page"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
+ nav.innerHTML=moduleNavigation(id);
  const staticPages={accueil:dashboard,cours:()=>lessons(fromQuestion),atelier,express:expressPage,chapitre1:chapter,ecouter:listenPage,sources:sourcePage,'sur-mesure':customApplications};
  const preserveAnchor=anchor && lastRoute===id && id==='cours' && lastCourseReturn===fromQuestion && document.getElementById(anchor);
  if(!preserveAnchor) {
@@ -1114,6 +1222,17 @@ main.addEventListener('click',event=>{
  }
 });
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();main.focus();});
+nav.addEventListener('keydown',event=>{
+ const openMenu=nav.querySelector('.module-menu[open]');
+ if(event.key==='Escape' && openMenu){
+  openMenu.open=false;
+  openMenu.querySelector('summary').focus();
+ }
+});
+document.addEventListener('click',event=>{
+ const openMenu=nav.querySelector('.module-menu[open]');
+ if(openMenu && (!openMenu.contains(event.target) || event.target.closest('a'))) openMenu.open=false;
+});
 window.addEventListener('hashchange',render);
 bindMedia();
 render();

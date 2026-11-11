@@ -25,6 +25,7 @@ def build(output):
     audio = output / "audio"
     audio.mkdir(parents=True, exist_ok=True)
     shutil.copyfile("index.html", output / "index.html")
+    shutil.copytree("assets", output / "assets", dirs_exist_ok=True)
     engine = TTS(auto_download=True)
     styles = {role: engine.get_voice_style(voice_name=name) for role, name in VOICES.items()}
     print("Guide : M1. Étudiante : F2.", flush=True)
