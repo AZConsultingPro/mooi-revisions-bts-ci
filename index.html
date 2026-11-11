@@ -285,6 +285,111 @@ written('case','flow','Argumenter un schéma et une mesure de protection','Une P
 written('justify','box','Choisir un type et contrôler le chargement','Une machine large ne rentre pas dans un conteneur fermé. Elle doit être chargée par le dessus et peut dépasser latéralement. Propose un type et indique deux vérifications avant de réserver.',[
  ['Proposer un Flat Rack adapté',1],['Justifier par le dépassement latéral',1],['Vérifier masse ou gabarit accepté',1],['Vérifier arrimage, appuis ou manutention',1]
 ],'Le Flat Rack offre une plateforme adaptée à un dépassement latéral sous réserve d’acceptation. Je confirme les cotes hors gabarit et la charge utile, puis je valide les appuis, le levage et le plan d’arrimage.');
+const originalChoices = Object.fromEntries(Object.entries(bank).filter(([,q])=>q.type==='choice'));
+
+choice('ro','nav','Relier le mode de manutention au navire','Six semi-remorques chargées doivent embarquer sur leurs roues, être tractées à bord puis ressortir par la rampe à destination. Quelle réservation respecte ce plan de manutention ?',[
+ ['Navire roulier, semi-remorques tractées par la rampe','Le Ro-Ro accueille les unités roulantes par une rampe. Les lots restent dans les semi-remorques.'],
+ ['Porte-conteneurs, marchandises transférées dans des Dry','Cette réservation exige de dépoter les semi-remorques. Les conteneurs sont ensuite manutentionnés à la grue.'],
+ ['Navire à colis lourds, semi-remorques levées sur berceaux','Ce plan fait intervenir un levage. Le cahier des charges prévoit une manutention sur roues.'],
+ ['Navire polyvalent, chargement des palettes sous palan','Le chargement des palettes exige leur sortie des semi-remorques, qui doivent ici embarquer chargées.']
+]);
+choice('std','nav','Identifier l’effet direct de la standardisation','Au terminal, un même conteneur plombé passe du navire au camion. Quel gain vient directement de la standardisation du conteneur ?',[
+ ['Transférer l’unité avec des équipements compatibles sans reprendre les colis','Les points de prise et l’encombrement normalisés facilitent le transfert d’une unité entière.'],
+ ['Réduire le nombre de trajets routiers grâce à une charge utile identique','Les limites de charge peuvent différer selon le matériel et le trajet. La standardisation n’établit pas le nombre de trajets nécessaires.'],
+ ['Accélérer la préparation de commandes en triant les colis pendant le transfert','Les colis restent ensemble dans l’unité plombée. Un éventuel tri est une opération distincte.'],
+ ['Améliorer le suivi du lot en réutilisant le numéro du plomb comme référence de réservation','Le plomb sert au contrôle de l’intégrité. Le gain opérationnel ici vient de la compatibilité des équipements de manutention.']
+]);
+choice('reef','box','Assurer la continuité de la chaîne du froid','Un lot doit rester à −18 °C du départ à la livraison. Le terminal d’arrivée prévoit 36 heures d’attente et le client exige un relevé de température. Quel plan convient ?',[
+ ['Reefer réglé à −18 °C, alimentation aux étapes prévues et enregistrement continu','Le réglage, les relais d’alimentation et l’enregistrement répondent aux contraintes de conservation et de suivi.'],
+ ['Reefer réglé à −18 °C en mer, débranché au terminal avec relevé continu','Le relevé trace la température. Il ne garantit pas le maintien à −18 °C pendant les 36 heures sans alimentation.'],
+ ['Dry isolé avec enregistreur, remise du relevé à la livraison','L’isolation ralentit les échanges thermiques. Sans solution de froid dimensionnée et validée, ce plan ne démontre pas le maintien de la consigne.'],
+ ['Reefer réglé à −18 °C à chaque étape, contrôles ponctuels au chargement et à la livraison','Les deux contrôles donnent des températures à des instants précis. Le client exige un relevé couvrant le trajet.']
+]);
+choice('open','box','Choisir un équipement compatible avec le levage et le gabarit','Une machine entre dans le gabarit utile et respecte la charge admissible. Le levage doit se faire verticalement, les parois latérales sont exigées et une bâche suffit pour fermer le dessus. Quel type réserver ?',[
+ ['Open Top avec bâche','L’ouverture supérieure donne accès à la grue. Le modèle conserve des parois latérales et peut être bâché.'],
+ ['Flat Rack avec bâche','Le Flat Rack permet le levage vertical, mais sa structure ne fournit pas les parois latérales exigées.'],
+ ['High Cube Dry avec renfort de plancher','La hauteur supplémentaire et le plancher ne donnent pas d’accès vertical. Le toit reste fixe.'],
+ ['Dry avec ouverture latérale','L’ouverture latérale aide à introduire la machine par le côté. Le levage prévu passe par le haut.']
+]);
+choice('weight','box','Calculer la masse à comparer à la charge utile','La marchandise pèse 23 850 kg. Palettes et calage ajoutent 750 kg. La charge utile de ce 40 pieds est de 24 400 kg, sa tare de 3 750 kg. Le lot entre géométriquement. Quel verdict est correct ?',[
+ ['Refus : 24 600 kg chargés, soit 200 kg au-dessus de la limite','On additionne marchandise, palettes et calage, puis on compare à la charge utile.'],
+ ['Acceptation : 23 850 kg chargés, soit 550 kg sous la limite','Ce calcul omet la masse des palettes et du calage, qui fait partie de la charge.'],
+ ['Refus : 28 350 kg chargés, soit 3 950 kg au-dessus de la limite','28 350 kg est la masse brute avec la tare du conteneur. On la comparerait à une masse brute maximale.'],
+ ['Acceptation : 24 600 kg chargés, soit 3 550 kg sous la limite','Le calcul de la marge utilise 28 150 kg, masse brute maximale déduite de la tare et de la charge utile. La comparaison doit porter sur deux masses de même nature.']
+]);
+choice('high','box','Vérifier la hauteur au point de passage','Un colis de 2,65 m doit entrer par l’arrière en restant debout. Un High Cube annonce 2,69 m de hauteur intérieure et 2,58 m sous le cadre des portes. Le moyen de manutention demande 3 cm de marge verticale. Quelle conclusion ?',[
+ ['Le passage est impossible : il faut 2,68 m à la porte','La hauteur minimale au passage vaut 2,65 + 0,03 = 2,68 m. L’ouverture utile n’est que de 2,58 m.'],
+ ['Le passage est possible : 2,68 m requis et 2,69 m disponibles','2,69 m est la hauteur intérieure. Le cadre des portes limite l’entrée avant que le colis soit à l’intérieur.'],
+ ['Le passage est possible : on peut entrer incliné, puis redresser le colis','La manutention impose de conserver le colis debout pendant l’entrée.'],
+ ['Le passage est impossible : 2,71 m sont nécessaires à l’intérieur','Ce calcul ajoute la marge de 3 cm deux fois. Les 2,68 m nécessaires sont disponibles à l’intérieur. Le blocage vient du cadre de porte.']
+]);
+choice('rate','box','Comparer deux coûts sur le même périmètre','Le cours donne 3 626 $ pour Shanghai–Rotterdam en 40 pieds, sans date ni détail de prestations. Un devis actuel indique 4 050 $, avec manutention à destination. Quelle comparaison est défendable ?',[
+ ['Demander le périmètre et la date de référence avant d’interpréter l’écart','L’écart brut vaut 424 $. Pour expliquer cet écart, il faut comparer des prestations et des conditions de prix comparables.'],
+ ['Mesurer une hausse de 424 $ du seul fret maritime','Le devis comprend la manutention. Le montant du cours ne permet pas d’isoler le seul fret dans les deux offres.'],
+ ['Attribuer les 424 $ à la seule manutention à destination','Il faudrait le détail du prix actuel et du prix de référence pour attribuer l’écart à cette prestation.'],
+ ['Utiliser 3 626 $ comme plafond et retenir le devis seulement s’il repasse sous ce montant','L’exemple du cours ne constitue ni un tarif garanti ni un plafond budgétaire défini par l’entreprise.']
+]);
+choice('fcl','flow','Distinguer chargement exclusif et taux de remplissage','Un exportateur remplit 60 % d’un conteneur réservé à son lot. À destination, le conteneur fermé est remis à un seul acheteur, qui le vide dans son entrepôt. Quel schéma s’applique ?',[
+ ['FCL/FCL','Le lot bénéficie d’un conteneur dédié au départ et le destinataire reçoit le conteneur entier. Le vidage chez le client est un dépotage.'],
+ ['LCL/LCL','Ce schéma implique un groupage puis un dégroupage entre lots. Le taux de remplissage ne suffit pas à caractériser le LCL.'],
+ ['FCL/LCL','La remise à l’acheteur se fait en conteneur entier. Il n’y a aucune séparation de lots entre destinataires à l’arrivée.'],
+ ['LCL/FCL','Ce schéma exige un groupage au départ. La place vide reste ici réservée au même expéditeur.']
+]);
+choice('split','flow','Lire séparément le départ et l’arrivée','Au port de départ, un fournisseur charge trois commandes dans le conteneur qu’il a réservé. À l’arrivée, l’agent du terminal ouvre le conteneur et remet une commande à chacun des trois importateurs. Quel schéma s’applique ?',[
+ ['FCL/LCL','Un seul fournisseur utilise le conteneur au départ. L’agent sépare les commandes pour plusieurs destinataires à l’arrivée.'],
+ ['LCL/FCL','Ce serait un groupage au départ et une remise du conteneur entier à destination.'],
+ ['FCL/FCL','Le départ convient. L’arrivée décrite comporte toutefois un dégroupage entre importateurs.'],
+ ['LCL/LCL','Le dégroupage final convient. Trois commandes d’un même fournisseur dans son conteneur dédié ne constituent pas ici un groupage au départ.']
+]);
+choice('merge','flow','Distinguer groupage et dépotage','Un transitaire réunit dans un même conteneur les colis de trois fournisseurs. À destination, la même centrale d’achat reçoit le conteneur entier et trie les colis dans son entrepôt. Quel schéma s’applique ?',[
+ ['LCL/FCL','Il y a groupage au départ. Le conteneur entier est remis à un seul acheteur à destination.'],
+ ['FCL/LCL','Ce schéma correspond à un départ dédié suivi d’une séparation entre plusieurs destinataires.'],
+ ['LCL/LCL','Le tri interne après la remise ne correspond pas à un dégroupage pour livrer plusieurs destinataires.'],
+ ['FCL/FCL','La réception du conteneur entier correspond au FCL à l’arrivée. La réunion des trois fournisseurs impose de qualifier le départ en LCL.']
+]);
+choice('lcl','flow','Comparer coût complet, délai et manutentions','Deux palettes fragiles doivent arriver en 16 jours au plus. L’entreprise veut l’offre conforme la moins chère et accepte un transfert supplémentaire si le calage est renforcé. LCL : 780 € + 220 € de frais d’arrivée + 80 € de calage, 15 jours. FCL : 1 120 € tout compris, 14 jours. Quel choix retenir ?',[
+ ['LCL à 1 080 €, avec calage renforcé','780 + 220 + 80 = 1 080 €. Le délai de 15 jours et la protection exigée sont respectés.'],
+ ['FCL à 1 120 €, car son délai est plus court','Le FCL gagne un jour. L’offre LCL satisfait déjà la limite et coûte 40 € de moins avec le calage exigé.'],
+ ['LCL à 1 000 €, avec emballage habituel','1 000 € comprend les frais d’arrivée, mais omet le calage renforcé exigé pour le transfert supplémentaire.'],
+ ['LCL à 860 €, avec calage renforcé','860 € couvre le fret et le calage, mais omet les 220 € de frais d’arrivée.']
+]);
+choice('shared','flow','Repérer le groupage aux deux extrémités','Un groupeur rassemble les palettes de deux vendeurs pour remplir un conteneur. À destination, un seul transitaire reçoit le conteneur, puis remet des lots distincts à trois acheteurs. Quel schéma s’applique ?',[
+ ['LCL/LCL','Le groupeur réunit les lots au départ et le transitaire les sépare pour plusieurs acheteurs à destination.'],
+ ['FCL/LCL','Le dégroupage final convient. Le remplissage à 100 % ne rend pas le départ FCL quand le groupeur rassemble deux vendeurs.'],
+ ['LCL/FCL','Le départ est bien groupé. La réception par un seul transitaire ne change pas la remise séparée à trois acheteurs.'],
+ ['FCL/FCL','Le nombre de conteneurs et son remplissage ne déterminent pas le schéma. Il faut lire la prise en charge des lots aux deux extrémités.']
+]);
+choice('safe','pallet','Appliquer les règles de répartition et d’arrimage','Une machine lourde et des cartons gerbables partagent un conteneur. Tous les plans proposés respectent la charge utile totale. Quel plan répond aux contraintes de répartition, de stabilité et de maintien ?',[
+ ['Machine basse vers le milieu, charge répartie et ensembles calés ou arrimés','Le placement limite le déséquilibre, et le calage ou l’arrimage réduit les déplacements pendant le trajet.'],
+ ['Machine basse contre les portes, cartons répartis et tous les éléments arrimés','L’arrimage limite le mouvement. Une masse concentrée à une extrémité peut tout de même déséquilibrer la répartition longitudinale.'],
+ ['Machine vers le milieu sur les cartons, ensemble calé sur les côtés','Le centre de gravité monte. Le caractère gerbable des cartons ne prouve pas qu’ils peuvent supporter cette machine.'],
+ ['Machine basse vers le milieu, cartons répartis, espaces libres laissés autour des charges','Le placement traite la répartition. Les espaces libres sans dispositif de maintien permettent des déplacements en transport.']
+]);
+choice('mixed','pallet','Distinguer résultat prouvé et borne théorique','Les grilles uniformes donnent au mieux 32 colis. Un plan mixte sans chevauchement en place 33. Le rapport des volumes fixe un plafond théorique de 34. Quel bilan est rigoureux ?',[
+ ['L’optimum géométrique est 33 ou 34. Il manque un plan à 34 ou une preuve d’impossibilité','Le plan démontre la faisabilité géométrique de 33. Le plafond exclut 35, mais ne tranche pas entre 33 et 34.'],
+ ['L’optimum géométrique vaut 32 puisque les six orientations ont été testées','Le plan mixte à 33 montre que les grilles uniformes ne couvrent pas tous les agencements possibles.'],
+ ['L’optimum géométrique vaut 33 puisque le plan mixte dépasse la meilleure grille uniforme','Un plan à 33 donne une borne inférieure. Il faut encore exclure un plan à 34 pour conclure.'],
+ ['L’optimum géométrique vaut 34 puisque le volume disponible suffit','Le rapport de volumes donne une condition nécessaire. Il ne garantit pas que 34 colis s’agencent sans débordement ni chevauchement.']
+]);
+choice('up','logistics','Identifier la phase du point de vue de l’entreprise','Un fournisseur a fini de fabriquer des composants. Il les expédie à l’usine cliente, qui les réceptionne pour les intégrer à sa propre production. Comment qualifier le trajet du point de vue de l’usine cliente ?',[
+ ['Logistique amont, car le trajet approvisionne sa production','Le repère est le processus de l’entreprise cliente. Pour elle, les composants sont des approvisionnements entrants.'],
+ ['Logistique aval, car le fournisseur a terminé sa fabrication','Ce raisonnement prend le point de vue du fournisseur. La question porte sur l’usine cliente.'],
+ ['Logistique in situ, car le trajet se termine à la réception de l’usine','La gestion interne après réception peut relever de l’in situ. Le trajet depuis le fournisseur relève ici de l’approvisionnement amont.'],
+ ['Logistique aval jusqu’à la réception, puis amont dès le stockage des composants','La réception et le stockage des intrants précèdent la production de l’usine cliente. L’aval concerne les flux qui suivent sa production.']
+]);
+choice('out','logistics','Appliquer d’abord les critères éliminatoires','Le client exige une livraison en 3 jours maximum, un suivi continu et un prix total plafonné à 600 €. Quelle offre faut-il retenir ?',[
+ ['B · 580 €, 2 jours, suivi continu','B respecte à la fois le plafond, le délai et la continuité du suivi.'],
+ ['A · 500 €, 4 jours, suivi continu','A respecte le prix et le suivi. Le délai dépasse d’un jour la limite.'],
+ ['C · 540 €, 3 jours, confirmation à la livraison','C respecte le prix et le délai. Une confirmation finale ne constitue pas un suivi continu.'],
+ ['D · 620 €, 2 jours, suivi continu','D respecte le délai et le suivi. Son prix dépasse le plafond de 20 €.']
+]);
+choice('outs','logistics','Piloter une prestation externalisée','Une entreprise confie préparation des commandes et expédition à un prestataire. Elle veut garder la visibilité sur les retards et pouvoir changer de partenaire. Quelle clause répond aux deux objectifs ?',[
+ ['Indicateurs de délai et d’incidents, accès aux données et procédure de réversibilité','Les indicateurs rendent les écarts visibles. Les données et la réversibilité facilitent la reprise ou le transfert de la prestation.'],
+ ['Indicateurs de délai et pénalités de retard, données conservées uniquement par le prestataire','Le suivi et les pénalités aident à piloter les retards. Sans accès aux données, transférer la prestation devient plus difficile.'],
+ ['Restitution des données en fin de contrat, bilan annuel limité au coût de la prestation','La restitution aide à changer de partenaire. Le bilan de coût annuel ne signale pas les retards et incidents en cours de contrat.'],
+ ['Rapport hebdomadaire d’incidents et reconduction avec engagement d’exclusivité','Le rapport améliore la visibilité. L’engagement d’exclusivité limite la possibilité de recourir à un autre partenaire.']
+]);
+
 const sets = {
  diagnostic:[['ro','reef','fcl','iso','mixed','up','out','weight','terms','safe'],['ships','open','merge','euro','mass','flows','outs','high','road','fixed']],
  training:[['ships','std','reef','rate','fcl','terms','euro','mass','flows','up'],['ro','flat','high','weight','split','road','fixed','floor','outs','in'],['ships','open','shared','lcl','safe','mixed','iso','mass','out','flows']],
@@ -433,26 +538,54 @@ function chapter() {
 }
 function chapterQuiz() {
  const ids = chapterRound % 2 ? ['outs','in','out'] : ['up','flows','out'];
- return ids.map((id,i)=>`<form data-practice="${id}">${question(bank[id],i+1,null,{})}<button class="primary">Vérifier</button><div class="practice-feedback" aria-live="polite"></div></form>`).join('');
+ const round = {choiceOrder:createChoiceOrder(ids)};
+ return ids.map((id,i)=>`<form data-practice="${id}">${question(bank[id],i+1,null,round)}<button class="primary">Vérifier</button><div class="practice-feedback" aria-live="polite"></div></form>`).join('');
 }
 function expressPage() {
  return title('Révision express','Cinq repères à relire dans les dernières minutes.')+
  `<div class="grid cards">${express.map(([k,v])=>`<article class="panel"><h2>${k}</h2><p>${v}</p></article>`).join('')}</div><div class="actions">${link('atelier','Refaire les 32 colis',true)}${link('partiel','Faire le partiel blanc')}</div>`;
 }
 function roundFor(key) {
- return state.rounds[key] ?? null;
+ const round = state.rounds[key];
+ if(round && !round.choiceOrder && !round.submitted && key!=='exam' &&
+    !round.ids.some(([id])=>originalChoices[id] && round.answers[id])) {
+  round.choiceOrder=createChoiceOrder(round.ids.map(([id])=>id));
+  save();
+ }
+ return round ?? null;
 }
 function buildRound(key,variant) {
  const ids = key==='exam' ? sets.exam : sets[key][variant % sets[key].length].map(id=>[id,bank[id].type==='written'?4:1]);
- return {variant,ids,answers:{},manual:{},submitted:false, deadline:key==='exam'?Date.now()+25*60*1000:null};
+ const choiceOrder=createChoiceOrder(ids.map(([id])=>id));
+ return {variant,ids,choiceOrder,answers:{},manual:{},submitted:false,deadline:key==='exam'?Date.now()+25*60*1000:null};
 }
-function shuffleChoiceOptions(q,variant) {
+function createChoiceOrder(ids) {
+ const orders = {};
+ for(const id of ids) {
+  const q = bank[id];
+  if(q.type!=='choice') continue;
+  const indexes = q.answers.map((_,i)=>i);
+  for(let i=indexes.length-1;i>0;i--) {
+   const j=Math.floor(Math.random()*(i+1));
+   [indexes[i],indexes[j]]=[indexes[j],indexes[i]];
+  }
+  orders[id]=indexes;
+ }
+ return orders;
+}
+function questionForRound(id,round) {
+ return (!round.choiceOrder && originalChoices[id]) || bank[id];
+}
+function originalChoiceOrder(q,variant) {
  const start = (q.id.charCodeAt(0)+q.id.length+variant) % q.answers.length;
  return q.answers.map((_,i)=>(i+start)%q.answers.length);
 }
-function response(q,value,variant) {
+function response(q,value,round) {
  const id=q.id;
- if(q.type==='choice') return `<fieldset><legend class="source">${q.format}</legend>${shuffleChoiceOptions(q,variant).map(i=>`<label class="pick"><input type="radio" name="${id}" value="${i}" ${String(value)===String(i)?'checked':''}>${q.answers[i][0]}</label>`).join('')}</fieldset>`;
+ if(q.type==='choice') {
+  const order=round.choiceOrder?.[id] ?? originalChoiceOrder(q,round.variant||0);
+  return `<fieldset><legend class="source">${q.format}</legend>${order.map(i=>`<label class="pick"><input type="radio" name="${id}" value="${i}" ${String(value)===String(i)?'checked':''}>${q.answers[i][0]}</label>`).join('')}</fieldset>`;
+ }
  if(q.type==='match') {
   const options=q.pairs.map(p=>p[1]).sort((a,b)=>a.localeCompare(b,'fr'));
   return q.pairs.map(([prompt],i)=>`<label class="field">${prompt}<select name="${id}:${i}"><option value="">Choisir</option>${options.map(option=>`<option ${value?.[i]===option?'selected':''}>${option}</option>`).join('')}</select></label>`).join('');
@@ -462,7 +595,7 @@ function response(q,value,variant) {
 }
 function question(q,index,points,round) {
  const rubric = q.type==='written' ? '<p>Barème : quatre critères à 1 point. Identifie et justifie ta solution, puis traite chacun des éléments demandés.</p>' : '';
- return `<article class="question"><p class="eyebrow">Question ${index}${points!=null?' · '+points+' pt'+(points>1?'s':''):''} · ${groups[q.topic]}</p><h2>${q.prompt}</h2><p class="source">Objectif · ${q.objective}<br>Format · ${q.format}<br>Critère · ${q.success}</p>${rubric}${response(q,round.answers?.[q.id],round.variant||0)}</article>`;
+ return `<article class="question"><p class="eyebrow">Question ${index}${points!=null?' · '+points+' pt'+(points>1?'s':''):''} · ${groups[q.topic]}</p><h2>${q.prompt}</h2><p class="source">Objectif · ${q.objective}<br>Format · ${q.format}<br>Critère · ${q.success}</p>${rubric}${response(q,round.answers?.[q.id],round)}</article>`;
 }
 function capture(data,q) {
  if(q.type==='match') return q.pairs.map((_,i)=>data.get(q.id+':'+i)||'');
@@ -517,14 +650,16 @@ function exercisePage(key,label) {
   return intro+`<section class="panel narrow"><h2>Résultat</h2><p id="score" role="status">${scoreLine(round)}</p>${round.timedOut?'<p>Temps écoulé. Les réponses enregistrées ont été remises.</p>':''}
   ${key==='diagnostic'?recommendations(round):''}<div class="actions"><button id="retry-round">${key==='exam'?'Refaire le partiel':'Essayer une autre série'}</button></div></section>`
   +`<div class="section narrow">${round.ids.map(([id,points],i)=>{
-   const q=bank[id],raw=round.answers[id];
+   const q=questionForRound(id,round),raw=round.answers[id];
    const content=q.type==='written'?writtenCorrection(q,raw,round.manual[id],round.criteria?.[id]||[]):correction(q,raw,evaluate(q,raw));
    return `<article class="question"><p class="eyebrow">Question ${i+1}${key==='exam'?' · '+points+' pt'+(points>1?'s':''):''}</p><h2>${q.prompt}</h2>${content}</article>`;
   }).join('')}</div>`+extra;
  }
+ const restart=key==='diagnostic' || (key!=='exam' && !round.choiceOrder);
  return intro+`<form id="round-form" class="narrow">${key==='exam'?'<div class="timer" id="timer" role="timer" aria-label="Temps restant"></div>':''}
- ${round.ids.map(([id,points],i)=>question(bank[id],i+1,key==='exam'?points:null,round)).join('')}
- <p class="error" id="round-error" role="alert" hidden></p><div class="actions"><button class="primary">${key==='exam'?'Remettre ma copie':'Corriger la série'}</button>${key==='diagnostic'?'<button type="button" id="restart-diagnostic">Recommencer</button>'+link('cours','Passer au cours'):''}</div></form>`+extra;
+ ${!round.choiceOrder?'<p class="note">Cette série reprend les questions affichées au démarrage.</p>':''}
+ ${round.ids.map(([id,points],i)=>question(questionForRound(id,round),i+1,key==='exam'?points:null,round)).join('')}
+ <p class="error" id="round-error" role="alert" hidden></p><div class="actions"><button class="primary">${key==='exam'?'Remettre ma copie':'Corriger la série'}</button>${restart?'<button type="button" id="restart-round">Recommencer</button>':''}${key==='diagnostic'?link('cours','Passer au cours'):''}</div></form>`+extra;
 }
 function writtenCorrection(q,raw,manual,checked) {
  const enabled=hasAnswer(q,raw);
@@ -707,10 +842,10 @@ main.addEventListener('submit',event=>{
 main.addEventListener('click',event=>{
  const button=event.target.closest('button');
  if(!button)return;
- if(['start-round','retry-round','restart-diagnostic'].includes(button.id)) {
+ if(['start-round','retry-round','restart-round'].includes(button.id)) {
   const key=activeExercise();
   const previous=roundFor(key);
-  if(button.id==='restart-diagnostic' && !window.confirm('Effacer les réponses de la série en cours et changer de série ?')) return;
+  if(button.id==='restart-round' && !window.confirm('Effacer les réponses de la série en cours et changer de série ?')) return;
   state.rounds[key]=buildRound(key,previous?previous.variant+1:0);
   save();render();
  }
