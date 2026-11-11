@@ -1,0 +1,47 @@
+name: Publier MOOI
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: mooi-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Préparer la voix française
+        run: |
+          python -m pip install --disable-pip-version-check piper-tts==1.4.1
+          mkdir -p "$RUNNER_TEMP/mooi-voices"
+          python -m piper.download_voices --data-dir "$RUNNER_TEMP/mooi-voices" fr_FR-siwis-medium
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+      - name: Générer et contrôler les capsules
+        run: python tools/build-audio.py _site "$RUNNER_TEMP/mooi-voices"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publier sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

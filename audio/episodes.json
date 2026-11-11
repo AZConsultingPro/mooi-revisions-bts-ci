@@ -1,0 +1,64 @@
+[
+  {
+    "id": "fcl-lcl",
+    "title": "FCL et LCL : lire le trajet dans le bon sens",
+    "summary": "Un conteneur à moitié rempli peut être réservé en exclusivité. Repère ce qui se passe à chaque extrémité du trajet.",
+    "course": "cours/fiche-flow",
+    "lines": [
+      ["Guide", "Première capsule. F C L et L C L. Lis toujours le départ, puis l’arrivée."],
+      ["Étudiante", "Un exportateur réserve un conteneur pour ses pièces détachées. Il ne le remplit qu’à soixante pour cent. Est-ce du groupage ?"],
+      ["Guide", "Le taux de remplissage ne suffit pas. Dans le schéma du cours, F C L indique que le conteneur est dédié à un expéditeur au départ ou remis entier à un destinataire à l’arrivée. L C L indique que des lots sont groupés au départ ou séparés à l’arrivée, selon sa position dans le sigle."],
+      ["Étudiante", "À l’arrivée, le terminal ouvre le conteneur et remet les lots à trois acheteurs. Quel est le schéma ? Formule la réponse dans ta tête."],
+      ["Pause", 5],
+      ["Guide", "F C L au départ, puis L C L à l’arrivée. Un expéditeur réserve le conteneur. Le terminal sépare ensuite les lots entre trois acheteurs. Si le conteneur était livré entier à un seul acheteur qui le vide chez lui, ce serait F C L, F C L."],
+      ["Étudiante", "À retenir. Pour choisir le premier sigle, je regarde qui charge au départ. Pour le second, je regarde comment les lots sont remis à destination."]
+    ]
+  },
+  {
+    "id": "conteneurs",
+    "title": "Quel conteneur choisir ?",
+    "summary": "Compare les besoins de température, de passage et de manutention avant de réserver.",
+    "course": "cours/fiche-box",
+    "lines": [
+      ["Guide", "Deuxième capsule. Choisir un conteneur. Pour une cargaison sèche de gabarit standard, on pense au conteneur dry. Pour une température contrôlée, on pense au reefer, le conteneur frigorifique."],
+      ["Étudiante", "Un lot doit rester à moins dix-huit degrés de bout en bout. Au port d’arrivée, il y aura trente-six heures d’attente. Le client exige un relevé continu. Quels points faut-il sécuriser en plus du choix du conteneur ?"],
+      ["Pause", 5],
+      ["Guide", "Il faut régler la consigne, confirmer l’alimentation pendant l’attente et prévoir l’enregistrement continu. L’enregistreur permet de vérifier la température. L’alimentation permet au système frigorifique de la maintenir."],
+      ["Étudiante", "Et si je transporte une machine qui doit être descendue par une grue ?"],
+      ["Guide", "Avec des parois latérales et une ouverture par le haut, l’open top permet le levage vertical. Pour une pièce très encombrante qui dépasse latéralement, on examine le flat rack. Il faut ensuite vérifier le gabarit autorisé, la charge utile, les appuis et l’arrimage."],
+      ["Étudiante", "À retenir. Avant de réserver, je vérifie les dimensions utiles, l’accès au conteneur et la masse de la charge, emballages compris."]
+    ]
+  },
+  {
+    "id": "palettisation",
+    "title": "Palettisation : retrouver les 32 colis",
+    "summary": "Reconstitue le calcul par axe, puis compare la capacité géométrique à la limite de masse.",
+    "course": "cours/fiche-pallet",
+    "lines": [
+      ["Guide", "Troisième capsule. Imagine une palette ISO. Elle mesure un mètre vingt de long sur un mètre de large. La hauteur disponible pour les colis est d’un mètre cinquante."],
+      ["Étudiante", "Dans l’orientation du cours, chaque colis occupe trente centimètres en longueur, cinquante en largeur et trente-cinq en hauteur. Combien de colis tiennent dans cette grille ?"],
+      ["Pause", 6],
+      ["Guide", "Sur la longueur, cent vingt divisé par trente donne quatre. Sur la largeur, cent divisé par cinquante donne deux. En hauteur, cent cinquante divisé par trente-cinq donne un peu plus de quatre. On garde quatre couches entières. Quatre fois deux fois quatre égale trente-deux colis."],
+      ["Étudiante", "Et si chaque colis pèse seize kilos et que la palette ne peut supporter que quatre cent quatre-vingts kilos de marchandises ?"],
+      ["Pause", 5],
+      ["Guide", "Quatre cent quatre-vingts divisé par seize égale trente. Le nombre retenu est le plus petit des deux. Ici, trente colis par la masse. Il faut ensuite vérifier la stabilité du plan retenu."],
+      ["Étudiante", "À retenir. Je divise sur chaque axe, j’arrondis chaque résultat vers le bas, je multiplie les entiers, puis je vérifie le poids et le gerbage."]
+    ]
+  },
+  {
+    "id": "logistique",
+    "title": "Chapitre 1 : les trois flux",
+    "summary": "Identifie les flux et le point de vue à adopter pour distinguer l’amont et l’aval.",
+    "course": "cours/fiche-logistics",
+    "lines": [
+      ["Guide", "Quatrième capsule. Une usine commande des composants, les reçoit et paie son fournisseur. Ces actions illustrent trois flux."],
+      ["Étudiante", "Le fournisseur envoie un avis d’expédition. Un camion livre les composants. L’usine règle la facture. Dans quel ordre sont les flux ?"],
+      ["Pause", 5],
+      ["Guide", "L’avis relève du flux d’information. Les composants qui se déplacent constituent le flux matériel. Le règlement relève du flux financier. Ces trois flux se coordonnent."],
+      ["Étudiante", "Le fournisseur a déjà fabriqué les composants. Le trajet est-il de la logistique aval pour l’usine cliente ?"],
+      ["Pause", 5],
+      ["Guide", "Du point de vue de l’usine cliente, le trajet approvisionne sa propre production. C’est de la logistique amont. Les activités au sein de l’entreprise relèvent de la logistique in situ. L’expédition des produits finis de l’usine relève de son aval."],
+      ["Étudiante", "À retenir. Je précise l’entreprise dont je parle, puis je situe le flux avant, pendant ou après sa production. Et pour comparer les transporteurs, je regarde le coût, le délai et la sécurité."]
+    ]
+  }
+]

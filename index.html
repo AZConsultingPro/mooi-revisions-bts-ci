@@ -99,6 +99,35 @@ legend{font-weight:800;margin-bottom:8px}
 footer{border-top:1px solid var(--line);padding:16px 0 24px;color:var(--muted);font-size:.86rem}
 footer .frame{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @media(min-width:650px){.frame{width:min(1120px,calc(100% - 64px))}main{padding-top:33px}.hero{padding:36px}.split{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}.panel,.route,.question{padding:21px}.hero-art{display:grid;position:absolute;right:3%;bottom:16%;width:36%;transform:skewY(-8deg);grid-template-columns:repeat(3,1fr);gap:7px;opacity:.48}.hero-art i{height:38px;background:repeating-linear-gradient(90deg,#d2e6db 0 2px,#2f6964 2px 10px);border:2px solid #a9cbc0;border-radius:4px}.hero-art i:nth-child(3n){background:repeating-linear-gradient(90deg,#ffcb7e 0 2px,#a87537 2px 10px)}}
+.media-intro{padding:clamp(20px,5vw,44px);border-radius:24px;background:linear-gradient(115deg,#14363d,#236856);color:white}
+.media-intro p{max-width:62ch;color:#eef7ef}.media-intro .eyebrow{color:#ffd58b}.media-intro h1{font-size:clamp(2rem,5vw,3.5rem)}
+.media-intro button{margin-top:10px;background:#ffd58b;border-color:#ffd58b;color:#203a34}
+.media-episodes,.visual-gallery{margin-top:14px}
+.episode h2{font-size:1.3rem}.episode details{margin:12px 0 0;padding:0 12px}
+.episode details p{font-size:.92rem}.media-credit{margin-top:16px}
+.audio-dock{position:fixed;bottom:0;inset-inline:0;z-index:4;background:#fff;border-top:1px solid #8cb2a8;box-shadow:0 -5px 20px #142f3016;padding:9px 0 max(10px,env(safe-area-inset-bottom))}
+.audio-dock .frame{display:flex;align-items:end;gap:12px}.audio-dock .audio-main{min-width:0;flex:1}.audio-dock audio{display:block;width:100%;height:42px}
+.audio-dock p{margin:0 0 4px;font-size:.85rem;font-weight:750}.audio-dock label{font-size:.75rem}.audio-dock select{display:block;width:auto;font-size:.9rem;margin-top:2px}
+.audio-open main{padding-bottom:116px}.audio-open footer{padding-bottom:116px}
+.visual-gallery{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.visual-panel h3{font-size:1.2rem}.container-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.container-cards>div{padding:10px;background:#f4f6ef;border-radius:10px;display:grid;gap:5px}.container-cards small{line-height:1.3}
+.container-icon{display:grid;place-items:center;width:100%;height:34px;border:3px solid #0f5e52;border-radius:4px;background:repeating-linear-gradient(90deg,#d3ebdc 0 4px,#b0d4c5 4px 8px);color:#144b52;font-weight:800;font-size:.78rem}
+.container-icon.reefer{background:#dff0f5;border-color:#266378}.container-icon.open{background:#fff1cf;border-color:#9d631d;border-top-style:dashed}
+.container-icon.flat{background:linear-gradient(0deg,#dfbb79 0 15%,transparent 15%);border-color:#8b5322;border-top-color:transparent}
+.mode-controls{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0 14px}
+.mode-controls button{padding-inline:6px;font-size:.88rem}.mode-controls button[aria-pressed=true]{background:#d9ede0;color:#0b5144;border-color:#388371}
+.route-diagram{display:grid;grid-template-columns:1fr auto 1.1fr auto 1fr;gap:4px;align-items:center;text-align:center;min-height:74px}
+.route-diagram>div{display:grid;gap:4px;min-width:0;justify-items:center;align-content:start}.route-diagram strong{font-size:.72rem;line-height:1.2}
+.route-diagram .container-icon{height:25px;width:100%}.route-arrow{color:#865b24;font-weight:800}
+.route-parcels{display:flex;align-items:center;justify-content:center;gap:2px;height:25px}
+.route-parcels i,.pallet-grid span,.pallet-layer span{background:#9fd4c3;border:1px solid #397765;border-radius:2px}.route-parcels i{width:10px;height:12px}
+.visual-caption{margin:9px 0 0;font-size:.91rem}.visual-foot{margin-top:10px}
+.pallet-stage{padding-top:4px}.pallet-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(2,1fr);gap:2px;width:min(100%,126px);height:105px;border:2px solid #497066;padding:4px;background:#f3ead7;border-radius:5px}
+.pallet-layers{display:grid;gap:4px;width:min(100%,210px);height:70px}.pallet-layer{display:grid;grid-template-columns:repeat(8,1fr);gap:2px;border-bottom:2px solid #9d734c}
+.media-enter{animation:media-enter .3s ease-out}
+@keyframes media-enter{from{opacity:.42;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.media-enter{animation:none}}
 </style>
 </head>
 <body>
@@ -106,8 +135,13 @@ footer .frame{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px
 <header><div class="frame"><div class="top"><a class="brand" href="#accueil"><span class="mark" aria-hidden="true">M</span><span>MOOI <span class="muted">· BTS CI</span></span></a><a class="signature" href="#sur-mesure">Développé par AZ Consulting</a></div>
 <nav aria-label="Modules" id="nav"></nav></div></header>
 <main class="frame" id="main" tabindex="-1"></main>
+<aside class="audio-dock" id="audio-dock" aria-label="Lecteur des capsules MOOI" hidden><div class="frame">
+ <div class="audio-main"><p id="audio-status" aria-live="polite">MOOI · Quatre capsules</p><audio id="mooi-audio" controls preload="none" src="audio/revision-mooi.mp3" aria-label="Réviser aux écouteurs"></audio></div>
+ <label>Vitesse<select id="audio-speed"><option value="0.85">0,85×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select></label>
+</div></aside>
 <footer><div class="frame"><span>Mise en œuvre des opérations internationales</span><a href="#sources">Sources et limites</a></div></footer>
 <noscript>Active JavaScript pour accéder aux exercices et au simulateur.</noscript>
+<script src="audio/chapitres.js"></script>
 <script>
 const groups = {nav:'Transport maritime', box:'Conteneurs', flow:'FCL et LCL', pallet:'Palettisation', logistics:'Logistique internationale'};
 const course = [
@@ -470,16 +504,130 @@ function rankedTopics() {
   return {topic, tested:records.length, score:records.length ? records.reduce((sum,r)=>sum+r.last,0)/records.length : null};
  });
 }
+const mediaEpisodes = [{"id":"fcl-lcl","title":"FCL et LCL : lire le trajet dans le bon sens","summary":"Un conteneur à moitié rempli peut être réservé en exclusivité. Repère ce qui se passe à chaque extrémité du trajet.","course":"cours/fiche-flow","lines":[["Guide","Première capsule. F C L et L C L. Lis toujours le départ, puis l’arrivée."],["Étudiante","Un exportateur réserve un conteneur pour ses pièces détachées. Il ne le remplit qu’à soixante pour cent. Est-ce du groupage ?"],["Guide","Le taux de remplissage ne suffit pas. Dans le schéma du cours, F C L indique que le conteneur est dédié à un expéditeur au départ ou remis entier à un destinataire à l’arrivée. L C L indique que des lots sont groupés au départ ou séparés à l’arrivée, selon sa position dans le sigle."],["Étudiante","À l’arrivée, le terminal ouvre le conteneur et remet les lots à trois acheteurs. Quel est le schéma ? Formule la réponse dans ta tête."],["Pause",5],["Guide","F C L au départ, puis L C L à l’arrivée. Un expéditeur réserve le conteneur. Le terminal sépare ensuite les lots entre trois acheteurs. Si le conteneur était livré entier à un seul acheteur qui le vide chez lui, ce serait F C L, F C L."],["Étudiante","À retenir. Pour choisir le premier sigle, je regarde qui charge au départ. Pour le second, je regarde comment les lots sont remis à destination."]]},{"id":"conteneurs","title":"Quel conteneur choisir ?","summary":"Compare les besoins de température, de passage et de manutention avant de réserver.","course":"cours/fiche-box","lines":[["Guide","Deuxième capsule. Choisir un conteneur. Pour une cargaison sèche de gabarit standard, on pense au conteneur dry. Pour une température contrôlée, on pense au reefer, le conteneur frigorifique."],["Étudiante","Un lot doit rester à moins dix-huit degrés de bout en bout. Au port d’arrivée, il y aura trente-six heures d’attente. Le client exige un relevé continu. Quels points faut-il sécuriser en plus du choix du conteneur ?"],["Pause",5],["Guide","Il faut régler la consigne, confirmer l’alimentation pendant l’attente et prévoir l’enregistrement continu. L’enregistreur permet de vérifier la température. L’alimentation permet au système frigorifique de la maintenir."],["Étudiante","Et si je transporte une machine qui doit être descendue par une grue ?"],["Guide","Avec des parois latérales et une ouverture par le haut, l’open top permet le levage vertical. Pour une pièce très encombrante qui dépasse latéralement, on examine le flat rack. Il faut ensuite vérifier le gabarit autorisé, la charge utile, les appuis et l’arrimage."],["Étudiante","À retenir. Avant de réserver, je vérifie les dimensions utiles, l’accès au conteneur et la masse de la charge, emballages compris."]]},{"id":"palettisation","title":"Palettisation : retrouver les 32 colis","summary":"Reconstitue le calcul par axe, puis compare la capacité géométrique à la limite de masse.","course":"cours/fiche-pallet","lines":[["Guide","Troisième capsule. Imagine une palette ISO. Elle mesure un mètre vingt de long sur un mètre de large. La hauteur disponible pour les colis est d’un mètre cinquante."],["Étudiante","Dans l’orientation du cours, chaque colis occupe trente centimètres en longueur, cinquante en largeur et trente-cinq en hauteur. Combien de colis tiennent dans cette grille ?"],["Pause",6],["Guide","Sur la longueur, cent vingt divisé par trente donne quatre. Sur la largeur, cent divisé par cinquante donne deux. En hauteur, cent cinquante divisé par trente-cinq donne un peu plus de quatre. On garde quatre couches entières. Quatre fois deux fois quatre égale trente-deux colis."],["Étudiante","Et si chaque colis pèse seize kilos et que la palette ne peut supporter que quatre cent quatre-vingts kilos de marchandises ?"],["Pause",5],["Guide","Quatre cent quatre-vingts divisé par seize égale trente. Le nombre retenu est le plus petit des deux. Ici, trente colis par la masse. Il faut ensuite vérifier la stabilité du plan retenu."],["Étudiante","À retenir. Je divise sur chaque axe, j’arrondis chaque résultat vers le bas, je multiplie les entiers, puis je vérifie le poids et le gerbage."]]},{"id":"logistique","title":"Chapitre 1 : les trois flux","summary":"Identifie les flux et le point de vue à adopter pour distinguer l’amont et l’aval.","course":"cours/fiche-logistics","lines":[["Guide","Quatrième capsule. Une usine commande des composants, les reçoit et paie son fournisseur. Ces actions illustrent trois flux."],["Étudiante","Le fournisseur envoie un avis d’expédition. Un camion livre les composants. L’usine règle la facture. Dans quel ordre sont les flux ?"],["Pause",5],["Guide","L’avis relève du flux d’information. Les composants qui se déplacent constituent le flux matériel. Le règlement relève du flux financier. Ces trois flux se coordonnent."],["Étudiante","Le fournisseur a déjà fabriqué les composants. Le trajet est-il de la logistique aval pour l’usine cliente ?"],["Pause",5],["Guide","Du point de vue de l’usine cliente, le trajet approvisionne sa propre production. C’est de la logistique amont. Les activités au sein de l’entreprise relèvent de la logistique in situ. L’expédition des produits finis de l’usine relève de son aval."],["Étudiante","À retenir. Je précise l’entreprise dont je parle, puis je situe le flux avant, pendant ou après sa production. Et pour comparer les transporteurs, je regarde le coût, le délai et la sécurité."]]}];
+/* Capsules et schémas de révision */
+const audioTrack = document.getElementById('mooi-audio');
+const audioDock = document.getElementById('audio-dock');
+const audioStatus = document.getElementById('audio-status');
+const audioOffsets = window.mooiAudioOffsets ?? {};
+let currentEpisode = '';
+
+function listenPage() {
+ const ready=mediaEpisodes.every(episode=>Object.hasOwn(audioOffsets,episode.id));
+ return `<section class="media-intro"><p class="eyebrow">Révision audio</p><h1>Réviser aux écouteurs</h1>
+ <p>Quatre mini-dialogues. Écoute le cas, réfléchis pendant la pause, puis compare ton raisonnement à la correction.</p>
+ ${ready?`<button class="primary" type="button" data-listen="${mediaEpisodes[0].id}">Écouter les quatre capsules</button>`:'<p>Les transcriptions sont disponibles ci-dessous. La piste audio est disponible sur le site publié.</p>'}
+ </section>
+ <div class="grid cards media-episodes">${mediaEpisodes.map((episode,i)=>`<article class="panel episode" id="episode-${episode.id}"><p class="eyebrow">Capsule ${i+1}</p><h2>${esc(episode.title)}</h2><p>${esc(episode.summary)}</p>
+ <div class="actions">${ready?`<button type="button" data-listen="${episode.id}" aria-label="Écouter la capsule ${i+1}">Écouter</button>`:''}${link(episode.course,'Revoir le cours')}</div>
+ <details class="transcript"><summary>Lire la transcription</summary><div>${episode.lines.map(([role,line])=>role==='Pause'?`<p class="muted"><em>Pause de réflexion · ${line} s</em></p>`:`<p><strong>${role}</strong> · ${esc(line)}</p>`).join('')}</div></details>
+ </article>`).join('')}</div>
+ <p class="source media-credit">Voix de synthèse Piper, modèle SIWIS d’après le <a href="https://datashare.ed.ac.uk/handle/10283/2353">corpus SIWIS French Speech Synthesis</a> (CC BY 4.0). Timbre modifié pour le guide.</p>`;
+}
+function updateAudioDock(page=location.hash.slice(1).split('/')[0]) {
+ const visible=Object.keys(audioOffsets).length>0 && (page==='ecouter' || !audioTrack.paused);
+ audioDock.hidden=!visible;
+ document.body.classList.toggle('audio-open',visible);
+}
+function updateEpisode() {
+ const active=mediaEpisodes.findLast(episode=>audioOffsets[episode.id]<=audioTrack.currentTime);
+ if(!active || currentEpisode===active.id) return;
+ currentEpisode=active.id;
+ audioStatus.textContent=active.title;
+ if('mediaSession' in navigator && typeof MediaMetadata==='function') {
+  navigator.mediaSession.metadata=new MediaMetadata({title:active.title,artist:'AZ Consulting',album:'MOOI · Réviser aux écouteurs'});
+ }
+}
+function playEpisode(id) {
+ if(!Object.hasOwn(audioOffsets,id))return;
+ audioTrack.currentTime=audioOffsets[id];
+ updateEpisode();
+ audioTrack.play().catch(()=>{audioStatus.textContent='Appuie sur Lecture pour démarrer la capsule.';});
+}
+function bindMedia() {
+ for(const event of ['play','pause','ended']) audioTrack.addEventListener(event,()=>updateAudioDock());
+ for(const event of ['timeupdate','loadedmetadata']) audioTrack.addEventListener(event,updateEpisode);
+ audioTrack.addEventListener('error',()=>{audioStatus.textContent='Piste indisponible. Recharge la page ou ouvre la transcription.';});
+ document.getElementById('audio-speed').addEventListener('change',event=>{audioTrack.playbackRate=Number(event.target.value);});
+}
+
+const modes = {
+ 'FCL/FCL':[1,1,'Conteneur dédié au départ, remis entier à un acheteur.'],
+ 'FCL/LCL':[1,3,'Conteneur dédié au départ, puis dégroupage entre plusieurs destinataires.'],
+ 'LCL/FCL':[3,1,'Groupage au départ, puis conteneur remis entier à un acheteur.'],
+ 'LCL/LCL':[3,3,'Groupage au départ et dégroupage entre plusieurs destinataires.']
+};
+const modeButtons=()=>Object.keys(modes).map(mode=>`<button type="button" data-mode="${mode}" aria-pressed="${mode==='FCL/FCL'}">${mode}</button>`).join('');
+function routeDiagram(mode) {
+ const [depart,arrivee,meaning]=modes[mode];
+ const parcels=count=>`<span class="route-parcels" aria-hidden="true">${'<i></i>'.repeat(count)}</span>`;
+ return `<div class="route-diagram media-enter" aria-hidden="true"><div>${parcels(depart)}<strong>${depart===1?'1 expéditeur':'Plusieurs expéditeurs'}</strong></div>
+ <span class="route-arrow">→</span><div><span class="container-icon dry"></span><strong>Conteneur</strong></div><span class="route-arrow">→</span>
+ <div>${parcels(arrivee)}<strong>${arrivee===1?'1 destinataire':'Plusieurs destinataires'}</strong></div></div><p class="visual-caption"><strong>${mode}</strong> · ${meaning}</p>`;
+}
+const palletSteps=[
+ ['Longueur','1,20 m ÷ 0,30 m = 4 colis dans une rangée.'],
+ ['Largeur','1,00 m ÷ 0,50 m = 2 rangées de 4, soit 8 colis par couche.'],
+ ['Hauteur','1,50 m ÷ 0,35 m permet 4 couches entières. 4 × 2 × 4 = 32 colis.']
+];
+let visualStep=0;
+let visualTimer;
+function palletDiagram(step) {
+ const [label,explanation]=palletSteps[step];
+ const layer='<div class="pallet-layer">'+ '<span></span>'.repeat(8)+'</div>';
+ const image=step===2?`<div class="pallet-layers" aria-hidden="true">${layer.repeat(4)}</div>`:
+  `<div class="pallet-grid" aria-hidden="true">${'<span></span>'.repeat(step===0?4:8)}</div>`;
+ return `<div class="pallet-stage media-enter">${image}<p class="visual-caption"><strong>${label}</strong> · ${explanation}</p></div>`;
+}
+function visualGallery() {
+ const containers=[
+  ['dry','Dry','Marchandises sèches, gabarit standard.'],
+  ['reefer','Reefer','Température contrôlée.'],
+  ['open','Open Top','Chargement vertical par le dessus.'],
+  ['flat','Flat Rack','Pièce encombrante ou hors gabarit.']
+ ];
+ return `<section id="visuels" class="section"><h2>Comprendre en images</h2><div class="grid visual-gallery">
+ <article class="panel visual-panel"><h3>Quel conteneur choisir ?</h3><div class="container-cards">${containers.map(([id,label,desc])=>`<div><span class="container-icon ${id}" aria-hidden="true">${id==='reefer'?'−18 °C':id==='open'?'↓':''}</span><strong>${label}</strong><small>${desc}</small></div>`).join('')}</div></article>
+ <article class="panel visual-panel"><h3>FCL / LCL · du départ à l’arrivée</h3>
+ <div class="actions mode-controls">${modeButtons()}</div><div id="route-visual" aria-live="polite">${routeDiagram('FCL/FCL')}</div></article>
+ <article class="panel visual-panel"><h3>Palette ISO · 32 colis en trois étapes</h3>
+ <div id="pallet-visual" aria-live="polite">${palletDiagram(0)}</div><div class="actions"><button type="button" data-pallet="play" aria-pressed="false">Lancer l’animation</button><button type="button" data-pallet="next">Étape suivante</button></div><p class="source visual-foot">Cas du cours, orientation uniforme. Vérifier ensuite poids, stabilité et gerbage.</p></article>
+ </div></section>`;
+}
+function stopVisualAnimation() {
+ clearInterval(visualTimer);
+ visualTimer=undefined;
+ const button=document.querySelector('[data-pallet="play"]');
+ if(button) {
+  button.textContent='Lancer l’animation';
+  button.setAttribute('aria-pressed','false');
+ }
+}
+function showPalletStep(step) {
+ visualStep=step;
+ document.getElementById('pallet-visual').innerHTML=palletDiagram(step);
+}
+function runPalletAnimation(button) {
+ if(visualTimer){stopVisualAnimation();return;}
+ showPalletStep(0);
+ button.textContent='Mettre en pause';
+ button.setAttribute('aria-pressed','true');
+ visualTimer=setInterval(()=>{
+  showPalletStep(visualStep+1);
+  if(visualStep===palletSteps.length-1)stopVisualAnimation();
+ },2600);
+}
 /* Navigation et rendu */
 const nav = document.getElementById('nav');
 const main = document.getElementById('main');
 const pages = {
  accueil:'Accueil', diagnostic:'Diagnostic', cours:'Cours', entrainement:'Entraînement',
  atelier:'Palettisation', cas:'Cas pratiques', partiel:'Partiel blanc', express:'Révision express',
- chapitre1:'Chapitre 1', sources:'Sources et limites', 'sur-mesure':'Applications sur mesure'
+ chapitre1:'Chapitre 1', ecouter:'Écouter', sources:'Sources et limites', 'sur-mesure':'Applications sur mesure'
 };
 const exercises = {diagnostic:'diagnostic',entrainement:'training',cas:'cases',partiel:'exam'};
 const routes = [
+ ['ecouter','Réviser aux écouteurs','Quatre capsules audio avec des cas concrets et des pauses pour réfléchir.'],
  ['cours','Les fiches de cours','Navires, conteneurs, FCL/LCL et chargement.'],
  ['atelier','Atelier de palettisation','Compare les orientations et visualise un plan de couche.'],
  ['entrainement','Mémorisation active','Cartes mémoire, associations, réponses courtes et calculs.'],
@@ -507,7 +655,7 @@ function dashboard() {
  const full = records.filter(r=>r.last===1).length;
  const topics = rankedTopics();
  const progress = topics.map(({topic,tested,score})=>[groups[topic],tested ? fr.format(tested) : '0', tested ? pct(score) : 'À découvrir']);
- return `<section class="hero"><div class="hero-content"><p class="kicker">BTS Commerce international · 12 novembre 2026</p><h1>Cap sur le partiel</h1><p>Révise le transport maritime, entraîne-toi à choisir le bon conteneur et refais les calculs de palettisation.</p><div class="actions">${link('diagnostic','Faire le diagnostic',true)}${link('express','Réviser en 5 min')}</div></div><div class="hero-art" aria-hidden="true">${'<i></i>'.repeat(9)}</div></section>
+ return `<section class="hero"><div class="hero-content"><p class="kicker">BTS Commerce international · 12 novembre 2026</p><h1>Cap sur le partiel</h1><p>Révise le transport maritime, entraîne-toi à choisir le bon conteneur et refais les calculs de palettisation.</p><div class="actions">${link('diagnostic','Faire le diagnostic',true)}${link('ecouter','Réviser aux écouteurs')}${link('cours/visuels','Voir les infographies')}</div></div><div class="hero-art" aria-hidden="true">${'<i></i>'.repeat(9)}</div></section>
  <section class="section"><h2>Mes parcours</h2><div class="grid cards">${routes.map(([id,name,desc])=>`<a class="route" href="#${id}"><h3>${name}</h3><p>${desc}</p><strong>Ouvrir <span aria-hidden="true">→</span></strong></a>`).join('')}</div></section>
  <section class="section" id="progression"><h2>Ma progression</h2><div class="stats"><div class="stat"><strong>${tried} / ${Object.keys(bank).length}</strong>Exercices corrigés</div><div class="stat"><strong>${full}</strong>Dernières réponses entièrement justes</div><div class="stat"><strong>${tried-full}</strong>Exercices à retravailler</div></div>
  <div class="panel section">${table('Progression par notion',['Notion','Exercices corrigés','Réussite'],progress)}<p class="source">Réussite par notion calculée sur la dernière correction de chaque exercice. Les associations peuvent rapporter une fraction. Les réponses rédigées comptent après autoévaluation.</p>
@@ -533,7 +681,8 @@ function courseCard(card,fromQuestion='') {
 }
 function lessons(fromQuestion='') {
  return title('Cours interactif','Ouvre une fiche, puis vérifie que tu peux l’appliquer à un exercice.')+
- `<div class="chips">${course.map(([id,label])=>`<a href="#cours/fiche-${id}">${label}</a>`).join('')}<a href="#cours/lexique">Lexique</a></div>`+
+ `<div class="chips"><a href="#cours/visuels">Infographies</a>${course.map(([id,label])=>`<a href="#cours/fiche-${id}">${label}</a>`).join('')}<a href="#cours/lexique">Lexique</a></div>`+
+ visualGallery()+
  course.map(card=>courseCard(card,fromQuestion)).join('')+
  `<section class="section" id="lexique"><h2>Lexique cliquable</h2><div class="chips">${termList()}</div>${Object.entries(lexicon).map(([k,v],i)=>`<details id="terme-${i}"><summary>${k}</summary><div>${v}</div></details>`).join('')}</section>`+
  `<div class="actions">${link('entrainement','M’entraîner',true)}${link('atelier','Tester la palettisation')}</div>`;
@@ -807,9 +956,14 @@ function render() {
  if(key==='exam' && round && !round.submitted && Date.now()>=round.deadline) submitRound(key,true);
  nav.innerHTML=Object.entries(pages).filter(([name])=>name!=='sources' && name!=='sur-mesure').map(([name,label])=>`<a href="#${name}" ${id===name?'aria-current="page"':''}>${label}</a>`).join('');
  nav.querySelector('[aria-current="page"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
- const staticPages={accueil:dashboard,cours:()=>lessons(fromQuestion),atelier,express:expressPage,chapitre1:chapter,sources:sourcePage,'sur-mesure':customApplications};
+ const staticPages={accueil:dashboard,cours:()=>lessons(fromQuestion),atelier,express:expressPage,chapitre1:chapter,ecouter:listenPage,sources:sourcePage,'sur-mesure':customApplications};
  const preserveAnchor=anchor && lastRoute===id && id==='cours' && lastCourseReturn===fromQuestion && document.getElementById(anchor);
- if(!preserveAnchor) main.innerHTML=(storageWarning?'<p class="note">Le navigateur limite le stockage local. La progression peut disparaître à la fermeture.</p>':'')+(key?exercisePage(key,pages[id]):staticPages[id]());
+ if(!preserveAnchor) {
+  stopVisualAnimation();
+  visualStep=0;
+  main.innerHTML=(storageWarning?'<p class="note">Le navigateur limite le stockage local. La progression peut disparaître à la fermeture.</p>':'')+(key?exercisePage(key,pages[id]):staticPages[id]());
+ }
+ updateAudioDock(id);
  lastRoute=id;
  lastCourseReturn=fromQuestion;
  if(anchor) {
@@ -900,6 +1054,18 @@ main.addEventListener('submit',event=>{
 main.addEventListener('click',event=>{
  const button=event.target.closest('button');
  if(!button)return;
+ if(button.dataset.listen){playEpisode(button.dataset.listen);return;}
+ if(button.dataset.mode){
+  for(const option of button.parentElement.querySelectorAll('[data-mode]')) option.setAttribute('aria-pressed',String(option===button));
+  document.getElementById('route-visual').innerHTML=routeDiagram(button.dataset.mode);
+  return;
+ }
+ if(button.dataset.pallet==='play'){runPalletAnimation(button);return;}
+ if(button.dataset.pallet==='next'){
+  stopVisualAnimation();
+  showPalletStep((visualStep+1)%palletSteps.length);
+  return;
+ }
  if(button.dataset.check){
   const round=roundFor('diagnostic'),q=questionForRound(button.dataset.check,round);
   const raw=capture(new FormData(button.form),q);
@@ -949,6 +1115,7 @@ main.addEventListener('click',event=>{
 });
 document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();main.focus();});
 window.addEventListener('hashchange',render);
+bindMedia();
 render();
 </script>
 </body>
