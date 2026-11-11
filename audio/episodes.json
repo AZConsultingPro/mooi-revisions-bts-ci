@@ -11,7 +11,8 @@
       ["Étudiante", "À l’arrivée, le terminal ouvre le conteneur et remet les lots à trois acheteurs. Quel est le schéma ? Formule la réponse dans ta tête."],
       ["Pause", 5],
       ["Guide", "F C L au départ, puis L C L à l’arrivée. Un expéditeur réserve le conteneur. Le terminal sépare ensuite les lots entre trois acheteurs. Si le conteneur était livré entier à un seul acheteur qui le vide chez lui, ce serait F C L, F C L."],
-      ["Étudiante", "À retenir. Pour choisir le premier sigle, je regarde qui charge au départ. Pour le second, je regarde comment les lots sont remis à destination."]
+      ["Étudiante", "Et pour reconnaître le bon schéma dans un exercice, par quoi je commence ?"],
+      ["Guide", "Regarde d’abord qui charge au départ. Ensuite, regarde comment les lots sont remis à destination. Lis toujours les deux extrémités dans cet ordre."]
     ]
   },
   {
@@ -26,7 +27,8 @@
       ["Guide", "Il faut régler la consigne, confirmer l’alimentation pendant l’attente et prévoir l’enregistrement continu. L’enregistreur permet de vérifier la température. L’alimentation permet au système frigorifique de la maintenir."],
       ["Étudiante", "Et si je transporte une machine qui doit être descendue par une grue ?"],
       ["Guide", "Avec des parois latérales et une ouverture par le haut, l’open top permet le levage vertical. Pour une pièce très encombrante qui dépasse latéralement, on examine le flat rack. Il faut ensuite vérifier le gabarit autorisé, la charge utile, les appuis et l’arrimage."],
-      ["Étudiante", "À retenir. Avant de réserver, je vérifie les dimensions utiles, l’accès au conteneur et la masse de la charge, emballages compris."]
+      ["Étudiante", "Avant de réserver, je vérifie quoi en priorité ?"],
+      ["Guide", "Vérifie les dimensions utiles, le passage par la porte ou par le toit, et la masse à charger, emballages compris. Si le lot est réfrigéré, ajoute la continuité du froid."]
     ]
   },
   {
@@ -42,7 +44,8 @@
       ["Étudiante", "Et si chaque colis pèse seize kilos et que la palette ne peut supporter que quatre cent quatre-vingts kilos de marchandises ?"],
       ["Pause", 5],
       ["Guide", "Quatre cent quatre-vingts divisé par seize égale trente. Le nombre retenu est le plus petit des deux. Ici, trente colis par la masse. Il faut ensuite vérifier la stabilité du plan retenu."],
-      ["Étudiante", "À retenir. Je divise sur chaque axe, j’arrondis chaque résultat vers le bas, je multiplie les entiers, puis je vérifie le poids et le gerbage."]
+      ["Étudiante", "Quelle méthode je retiens pour le partiel ?"],
+      ["Guide", "Divise sur chaque axe, arrondis chaque quotient vers le bas, puis multiplie les trois entiers. Vérifie ensuite le poids, le gerbage et la stabilité."]
     ]
   },
   {
@@ -58,7 +61,8 @@
       ["Étudiante", "Le fournisseur a déjà fabriqué les composants. Le trajet est-il de la logistique aval pour l’usine cliente ?"],
       ["Pause", 5],
       ["Guide", "Du point de vue de l’usine cliente, le trajet approvisionne sa propre production. C’est de la logistique amont. Les activités au sein de l’entreprise relèvent de la logistique in situ. L’expédition des produits finis de l’usine relève de son aval."],
-      ["Étudiante", "À retenir. Je précise l’entreprise dont je parle, puis je situe le flux avant, pendant ou après sa production. Et pour comparer les transporteurs, je regarde le coût, le délai et la sécurité."]
+      ["Étudiante", "Quel est le bon réflexe pour distinguer l’amont de l’aval ?"],
+      ["Guide", "Précise l’entreprise dont tu parles. Situe ensuite le flux avant, pendant ou après sa production. Pour comparer les transporteurs, regarde le coût, le délai et la sécurité."]
     ]
   }
 ]
