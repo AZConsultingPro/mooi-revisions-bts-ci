@@ -24,7 +24,7 @@ header{background:#fff;border-bottom:1px solid var(--line)}
 .top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:65px}
 .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}
 .mark{display:grid;place-items:center;width:36px;height:36px;background:var(--navy);color:white;border-radius:9px;font-size:14px}
-.signature{color:var(--muted);font-size:.83rem;text-align:right}
+.signature{display:flex;align-items:center;min-height:44px;color:var(--green);font-size:.83rem;text-align:right;text-underline-offset:.2em}
 nav{display:flex;gap:6px;overflow:auto;padding-block:4px 10px;scrollbar-width:thin}
 nav a{white-space:nowrap;display:flex;align-items:center;min-height:44px;text-decoration:none;padding:6px 11px;border-radius:8px;font-weight:650;color:var(--muted)}
 nav a[aria-current=page]{color:var(--green);background:var(--mint)}
@@ -103,7 +103,7 @@ footer .frame{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px
 </head>
 <body>
 <a href="#main" class="skip">Aller au contenu</a>
-<header><div class="frame"><div class="top"><a class="brand" href="#accueil"><span class="mark" aria-hidden="true">M</span><span>MOOI <span class="muted">· BTS CI</span></span></a><span class="signature">AZ Consulting</span></div>
+<header><div class="frame"><div class="top"><a class="brand" href="#accueil"><span class="mark" aria-hidden="true">M</span><span>MOOI <span class="muted">· BTS CI</span></span></a><a class="signature" href="#sur-mesure">Développé par AZ Consulting</a></div>
 <nav aria-label="Modules" id="nav"></nav></div></header>
 <main class="frame" id="main" tabindex="-1"></main>
 <footer><div class="frame"><span>Mise en œuvre des opérations internationales</span><a href="#sources">Sources et limites</a></div></footer>
@@ -118,7 +118,7 @@ const course = [
  ]],
  ['box','Types, dimensions et coûts','Cours maritime · p. 2–3',[
   ['Dry','Conteneur standard pour des marchandises générales qui ne requièrent pas une température contrôlée. Exemple : vêtements emballés.'],
-  ['Reefer','Conteneur à température contrôlée capable de refroidir ou chauffer. Exemple : produits surgelés.'],
+  ['Reefer','Conteneur à température contrôlée capable de refroidir ou chauffer. Exemple : produits surgelés. Pour suivre une chaîne du froid, vérifier la consigne, les relais d’alimentation pendant les attentes au terminal et le relevé de température demandé par le client.'],
   ['Flat Rack et Open Top','Flat Rack : plateforme avec extrémités fixes ou rabattables selon le modèle, adaptée aux marchandises encombrantes ou hors gabarit. Open Top : ouverture par le dessus, utile pour charger à la verticale à la grue ou lorsque les portes sont inadaptées.'],
   ['Location ou détention','Une entreprise peut détenir ou louer le conteneur. Exemples de cours pour un 40 pieds au départ de Shanghai : Rotterdam 3 626 $, Los Angeles 7 514 $, New York 9 631 $. Exemples historiques non datés dans le support.'],
   ['Vérifier le matériel réel','Les chiffres ci-dessous sont ceux du support. La hauteur 2,89 m du High Cube soulève une ambiguïté entre hauteur intérieure et extérieure. Utiliser la fiche du matériel pour les cotes intérieures, l’ouverture des portes et la charge utile.']
@@ -127,13 +127,16 @@ const course = [
   ['FCL · Full Container Load','Le conteneur est utilisé en exclusivité dans le schéma du cours, même avec des espaces vides. Un seul lot au départ ne nécessite pas de groupage.'],
   ['LCL · Less than Container Load','Envoi partiel. Le chargeur remet des colis, palettes, caisses ou fûts. Le groupeur rassemble plusieurs expéditions dans un même conteneur.'],
   ['Lire dans l’ordre départ → arrivée','FCL/FCL : un expéditeur → un destinataire, sans groupage ni dégroupage. LCL/LCL : plusieurs → plusieurs, avec groupage et dégroupage. FCL/LCL : un → plusieurs, dégroupage à l’arrivée. LCL/FCL : plusieurs → un, groupage au départ.'],
-  ['Après le port','Dans le schéma du cours, le dégroupage a lieu au terminal lorsque plusieurs destinataires doivent être servis. Un conteneur destiné à un client peut repartir par camion pour le post-acheminement. Le transitaire organise le transport et les formalités associées.']
+  ['Après le port','Dans le schéma du cours, le dégroupage a lieu au terminal lorsque plusieurs destinataires doivent être servis. Un conteneur destiné à un client peut repartir par camion pour le post-acheminement. Le transitaire organise le transport et les formalités associées.'],
+  ['Empotage, dépotage, groupage et dégroupage','Empoter consiste à charger le conteneur et dépoter consiste à le vider. Grouper, c’est réunir plusieurs expéditions. Dégrouper, c’est séparer les lots pour les remettre à leurs destinataires. Un acheteur qui vide chez lui un conteneur reçu entier effectue un dépotage.']
  ]],
  ['pallet','Palettiser et empoter','Cours maritime · p. 4–6',[
   ['Palettes EURO et ISO','EURO : 1,20 × 0,80 m. ISO : 1,20 × 1,00 m. Une palette regroupe les colis en une unité de manutention normalisée et réutilisable. La charge admise dépend de la palette. Le gerbage est possible si le conditionnement le permet.'],
   ['Calculer en trois divisions','Pour chaque orientation permise, diviser la longueur, la largeur et la hauteur utile par la dimension correspondante du colis. Arrondir chaque quotient à l’entier inférieur. Multiplier les trois entiers, puis comparer les orientations.'],
   ['Reproduire les 32 colis du cours','Palette ISO et hauteur utile de 1,50 m. Colis orienté 0,30 × 0,50 × 0,35 m : ⌊1,20 ÷ 0,30⌋ = 4, ⌊1,00 ÷ 0,50⌋ = 2 et ⌊1,50 ÷ 0,35⌋ = 4. Total : 4 × 2 × 4 = 32.'],
-  ['Planifier l’empotage','Contrôler l’état et la propreté du conteneur. Répartir la masse sur le plancher, placer le lourd au milieu et en bas, limiter les vides et vérifier le gerbage. Après la palette, refaire les contrôles à l’échelle du conteneur et des portes.']
+  ['Planifier l’empotage','Contrôler l’état et la propreté du conteneur. Répartir la masse sur le plancher, placer le lourd au milieu et en bas, limiter les vides et vérifier le gerbage. Après la palette, refaire les contrôles à l’échelle du conteneur et des portes.'],
+  ['Comparer orientation uniforme et plan mixte','Une grille uniforme applique la même orientation à tous les colis. Un plan mixte peut en combiner plusieurs. Dans l’exemple ISO, la meilleure grille en place 32 et un plan mixte en place 33. La borne de volume est 34. Pour conclure à 34, il faut montrer qu’un tel agencement tient. Pour conclure à 33, il faut exclure le plan à 34.'],
+  ['Appliquer la limite de masse','Diviser la charge utile de la palette par la masse d’un colis et arrondir à l’entier inférieur. Retenir le plus petit nombre entre ce résultat et la capacité géométrique. Par exemple, 480 kg ÷ 16 kg donne 30 colis, même si la grille prévoit 32 places. Vérifier ensuite la stabilité du plan retenu.']
  ]],
  ['logistics','Chapitre 1 · Organisation de la logistique','MOOI · chap. 1, p. 1–2',[
   ['Les trois flux','La logistique met le produit à disposition au bon endroit, au bon moment, au moindre coût compatible avec la qualité. La chaîne mobilise ressources, méthodes et outils du premier fournisseur au client final. Flux matériel : marchandises. Flux d’information : commandes et suivi. Flux financier : paiements et factures dans leur dimension financière.'],
@@ -396,6 +399,12 @@ const sets = {
  cases:[['lcl','open','weight','safe','case'],['reef','merge','high','floor','justify']],
  exam:[['ro',1],['reef',1],['split',1],['terms',2],['iso',3],['mass',2],['safe',2],['case',4],['flows',2],['out',2]]
 };
+const diagnosticTheory = {
+ ro:['nav',1], reef:['box',1], fcl:['flow',0], iso:['pallet',2], mixed:['pallet',4],
+ up:['logistics',1], out:['logistics',3], weight:['box',4], terms:['flow',4], safe:['pallet',3],
+ ships:['nav',0], open:['box',2], merge:['flow',2], euro:['pallet',1], mass:['pallet',5],
+ flows:['logistics',0], outs:['logistics',2], high:['box',4], road:['flow',3], fixed:['pallet',1]
+};
 const express = [
  ['Conteneurs','Dry : sec standard. Reefer : température contrôlée. Open Top : accès supérieur. Flat Rack : encombrement ou hors gabarit. High Cube : davantage de hauteur, dimensions utiles à confirmer.'],
  ['FCL/LCL','Lis départ puis arrivée. FCL : conteneur en exclusivité dans le schéma du cours, même partiellement rempli. LCL : groupage au départ ou dégroupage à l’arrivée, selon sa position.'],
@@ -467,7 +476,7 @@ const main = document.getElementById('main');
 const pages = {
  accueil:'Accueil', diagnostic:'Diagnostic', cours:'Cours', entrainement:'Entraînement',
  atelier:'Palettisation', cas:'Cas pratiques', partiel:'Partiel blanc', express:'Révision express',
- chapitre1:'Chapitre 1', sources:'Sources et limites'
+ chapitre1:'Chapitre 1', sources:'Sources et limites', 'sur-mesure':'Applications sur mesure'
 };
 const exercises = {diagnostic:'diagnostic',entrainement:'training',cas:'cases',partiel:'exam'};
 const routes = [
@@ -489,6 +498,7 @@ let flashIndex = 0;
 let chapterRound = 0;
 let timerId;
 let lastRoute = '';
+let lastCourseReturn = '';
 const flashcards = [...Object.entries(lexicon),...express.filter(([label])=>label==='Palette ISO')];
 
 function dashboard() {
@@ -503,18 +513,28 @@ function dashboard() {
  <div class="panel section">${table('Progression par notion',['Notion','Exercices corrigés','Réussite'],progress)}<p class="source">Réussite par notion calculée sur la dernière correction de chaque exercice. Les associations peuvent rapporter une fraction. Les réponses rédigées comptent après autoévaluation.</p>
  <button id="reset">Réinitialiser ma progression</button><p id="reset-note" role="status"></p></div></section>`;
 }
-function courseCard(card) {
+const lessonAnchor = (group,index) => `lecon-${group}-${index+1}`;
+function diagnosticLesson(id) {
+ const [group,index]=diagnosticTheory[id];
+ return {anchor:lessonAnchor(group,index),label:course.find(card=>card[0]===group)[3][index][0]};
+}
+function courseCard(card,fromQuestion='') {
  const [id,label,source,items] = card;
+ const returnAnchor=fromQuestion?diagnosticLesson(fromQuestion).anchor:'';
  return `<section class="section" id="fiche-${id}"><h2>${label}</h2><p class="source">${source}</p>
- ${items.map(([t,p])=>`<details><summary>${t}</summary><div>${p}</div></details>`).join('')}
+ ${items.map(([t,p],i)=>{
+  const anchor=lessonAnchor(id,i);
+  const resume=anchor===returnAnchor?`<div>${link('diagnostic/question-'+fromQuestion,'Revenir à ma question')}</div>`:'';
+  return `<details id="${anchor}"><summary>${t}</summary><div>${p}</div>${resume}</details>`;
+ }).join('')}
  ${id==='box'?table('Dimensions du support',['Conteneur','L × l × h (m)','Poids chargeable (kg)'],dimensions):''}
  ${id==='flow'?table('Schémas de cours',['Schéma','Départ','Arrivée'],[['FCL/FCL','1 expéditeur','1 destinataire'],['LCL/LCL','Groupage','Dégroupage'],['FCL/LCL','1 expéditeur','Dégroupage'],['LCL/FCL','Groupage','1 destinataire']]):''}
  </section>`;
 }
-function lessons() {
+function lessons(fromQuestion='') {
  return title('Cours interactif','Ouvre une fiche, puis vérifie que tu peux l’appliquer à un exercice.')+
  `<div class="chips">${course.map(([id,label])=>`<a href="#cours/fiche-${id}">${label}</a>`).join('')}<a href="#cours/lexique">Lexique</a></div>`+
- course.map(courseCard).join('')+
+ course.map(card=>courseCard(card,fromQuestion)).join('')+
  `<section class="section" id="lexique"><h2>Lexique cliquable</h2><div class="chips">${termList()}</div>${Object.entries(lexicon).map(([k,v],i)=>`<details id="terme-${i}"><summary>${k}</summary><div>${v}</div></details>`).join('')}</section>`+
  `<div class="actions">${link('entrainement','M’entraîner',true)}${link('atelier','Tester la palettisation')}</div>`;
 }
@@ -523,6 +543,13 @@ function sourcePage() {
  <div class="grid cards"><article class="panel"><h2>Les deux supports</h2><p><strong>Cours_MOOI_transport_maritime_conteneurisation.docx</strong>, p. 2 à 6. Navires, conteneurs, FCL/LCL, chargement, palettisation et lexique.</p><p><strong>MOOI.docx</strong>, chapitre 1, p. 1 à 2. Les autres chapitres servent à délimiter le programme de révision. Les sigles Incoterms transcrits de façon variable et la formule du taux de marge sur coût variable sont hors du parcours.</p></article>
  <article class="panel"><h2>Données du cours à confirmer</h2><p>Le tableau donne 2,89 m pour le High Cube sans préciser la hauteur utile. Les cotes, portes, charges et tarifs du cours demandent une confirmation sur le matériel ou le devis réel.</p><p>« Méthanier » a été précisé en « gaz naturel liquéfié ». La description du Flat Rack a été reformulée pour tenir compte des extrémités fixes ou rabattables.</p></article>
  <article class="panel"><h2>Compléments pédagogiques</h2><p>Les cas, variantes chiffrées, schémas, barèmes et le plan mixte de 33 colis ont été créés pour la révision. Les schémas FCL/LCL reprennent la convention du cours.</p><p>La hauteur de 1,50 m est interprétée comme utile pour les colis, conformément au calcul du cours. Si la hauteur comprend la palette, soustraire son épaisseur.</p></article></div>`;
+}
+function customApplications() {
+ return title('Applications de révision sur mesure','AZ Consulting conçoit des applications à partir de vos cours, adaptées au niveau de vos apprenants et à leurs objectifs de révision.')+
+ `<section class="panel narrow"><h2>Parlons de votre projet</h2><p>Fiches de cours interactives, QCM avec corrections, cas pratiques ou simulations : indiquez les formats utiles à votre public.</p>
+ <p>Pour demander un tarif, indiquez la matière, le niveau et l’échéance souhaitée.</p>
+ <div class="actions"><a class="button primary" href="https://github.com/AZConsultingPro/mooi-revisions-bts-ci/issues/new">Demander un tarif sur GitHub</a></div>
+ <p class="source">La demande est publique et nécessite un compte GitHub. Gardez vos coordonnées et supports privés.</p></section>`;
 }
 function currentFlash() {
  const [front,back] = flashcards[flashIndex];
@@ -580,22 +607,27 @@ function originalChoiceOrder(q,variant) {
  const start = (q.id.charCodeAt(0)+q.id.length+variant) % q.answers.length;
  return q.answers.map((_,i)=>(i+start)%q.answers.length);
 }
-function response(q,value,round) {
+function response(q,value,round,locked) {
  const id=q.id;
+ const disabled=locked?' disabled':'';
  if(q.type==='choice') {
   const order=round.choiceOrder?.[id] ?? originalChoiceOrder(q,round.variant||0);
-  return `<fieldset><legend class="source">${q.format}</legend>${order.map(i=>`<label class="pick"><input type="radio" name="${id}" value="${i}" ${String(value)===String(i)?'checked':''}>${q.answers[i][0]}</label>`).join('')}</fieldset>`;
+  return `<fieldset><legend class="source">${q.format}</legend>${order.map(i=>`<label class="pick"><input type="radio" name="${id}" value="${i}" ${String(value)===String(i)?'checked':''}${disabled}>${q.answers[i][0]}</label>`).join('')}</fieldset>`;
  }
  if(q.type==='match') {
   const options=q.pairs.map(p=>p[1]).sort((a,b)=>a.localeCompare(b,'fr'));
-  return q.pairs.map(([prompt],i)=>`<label class="field">${prompt}<select name="${id}:${i}"><option value="">Choisir</option>${options.map(option=>`<option ${value?.[i]===option?'selected':''}>${option}</option>`).join('')}</select></label>`).join('');
+  return q.pairs.map(([prompt],i)=>`<label class="field">${prompt}<select name="${id}:${i}"${disabled}><option value="">Choisir</option>${options.map(option=>`<option ${value?.[i]===option?'selected':''}>${option}</option>`).join('')}</select></label>`).join('');
  }
  if(q.type==='written') return `<label>Ta justification<textarea maxlength="1600" name="${id}">${esc(value)}</textarea></label>`;
- return `<label>Ta réponse<input name="${id}" ${q.type==='number'?'inputmode="numeric"':''} maxlength="80" value="${esc(value)}" autocomplete="off"></label>`;
+ return `<label>Ta réponse<input name="${id}" ${q.type==='number'?'inputmode="numeric"':''} maxlength="80" value="${esc(value)}" autocomplete="off"${disabled}></label>`;
 }
-function question(q,index,points,round) {
+function question(q,index,points,round,instant=false) {
  const rubric = q.type==='written' ? '<p>Barème : quatre critères à 1 point. Identifie et justifie ta solution, puis traite chacun des éléments demandés.</p>' : '';
- return `<article class="question"><p class="eyebrow">Question ${index}${points!=null?' · '+points+' pt'+(points>1?'s':''):''} · ${groups[q.topic]}</p><h2>${q.prompt}</h2><p class="source">Objectif · ${q.objective}<br>Format · ${q.format}<br>Critère · ${q.success}</p>${rubric}${response(q,round.answers?.[q.id],round)}</article>`;
+ const raw=round.answers?.[q.id];
+ const locked=instant && Boolean(round.checked?.[q.id]);
+ const feedback=instant?`<button type="button" data-check="${q.id}" aria-controls="feedback-${q.id}"${locked?' hidden':''}>Vérifier la question ${index}</button>
+ <div id="feedback-${q.id}" tabindex="-1" aria-live="polite">${locked?diagnosticCorrection(q,raw):''}</div>`:'';
+ return `<article class="question"${instant?` id="question-${q.id}"`:''}><p class="eyebrow">Question ${index}${points!=null?' · '+points+' pt'+(points>1?'s':''):''} · ${groups[q.topic]}</p><h2>${q.prompt}</h2><p class="source">Objectif · ${q.objective}<br>Format · ${q.format}<br>Critère · ${q.success}</p>${rubric}${response(q,raw,round,locked)}${feedback}</article>`;
 }
 function capture(data,q) {
  if(q.type==='match') return q.pairs.map((_,i)=>data.get(q.id+':'+i)||'');
@@ -611,6 +643,19 @@ function correction(q,raw,score) {
  if(q.type==='choice') return `<div class="feedback note ${score===1?'good':'bad'}"><strong>${caption}</strong>${picked?`<p>Ton choix · ${esc(picked)}</p>`:''}<ul>${q.answers.map(([a,why],i)=>`<li><strong>${i===0?'Attendu · ':''}${a}</strong> · ${why}</li>`).join('')}</ul></div>`;
  if(q.type==='match') return `<div class="feedback note ${score===1?'good':'bad'}"><strong>${caption}</strong><ul>${q.pairs.map(([a,b],i)=>`<li>${a} → <strong>${b}</strong>. Ta réponse · ${esc(raw?.[i]||'vide')}</li>`).join('')}</ul><p>${q.explain}</p></div>`;
  return `<div class="feedback note ${score===1?'good':'bad'}"><strong>${caption}</strong>${!missing?`<p>Ta réponse · ${esc(raw)}</p>`:''}<p>${q.explain}</p></div>`;
+}
+function diagnosticCorrection(q,raw) {
+ const {anchor,label}=diagnosticLesson(q.id);
+ return correction(q,raw,evaluate(q,raw))+
+  `<p class="actions">${link(`cours/${anchor}/${q.id}`,'Revoir le cours · '+label)}</p>`;
+}
+function checkDiagnosticAnswer(round,q,raw) {
+ if(!hasAnswer(q,raw) || round.checked?.[q.id]) return false;
+ round.answers[q.id]=raw;
+ round.checked ??= {};
+ round.checked[q.id]=true;
+ mark(q,evaluate(q,raw));
+ return true;
 }
 function resultScore(round) {
  let auto=0, manual=0, pending=0, total=0;
@@ -634,7 +679,7 @@ function recommendations(round) {
  return `<p>Revois les notions repérées, puis recommence avec une autre série.</p><div class="chips">${[...wrong].map(topic=>`<a href="#${topic==='pallet'?'atelier':topic==='logistics'?'chapitre1':'cours/fiche-'+topic}">${groups[topic]}</a>`).join('')}</div>`;
 }
 const descriptions = {
- diagnostic:'10 questions · 5 à 10 minutes. Le résultat indique quoi réviser en priorité.',
+ diagnostic:'10 questions · 5 à 10 minutes. Vérifie chaque réponse et retrouve le passage du cours associé.',
  training:'Reconnais, associe et calcule. Change de série après correction pour t’exercer sur d’autres données.',
  cases:'Choisis une solution de transport, puis justifie une décision comme en situation professionnelle. L’exercice rédigé rapporte 4 points en autoévaluation.',
  exam:'25 minutes · 20 points. Le sujet combine théorie, situation professionnelle et calculs.'
@@ -644,22 +689,22 @@ function exercisePage(key,label) {
  const intro=title(label,descriptions[key]);
  const extra=key==='training'?trainingExtras():'';
  if(!round) return intro+`<section class="panel narrow"><h2>${key==='exam'?'Consignes et barème':'Commencer la série'}</h2>
- <p>${key==='exam'?'16 points sur le transport maritime et la palettisation, 4 points sur le chapitre 1. Les associations rapportent des points au prorata. La justification sur 4 points est à autoévaluer après validation. Le chrono continue si tu quittes la page.':'Réponds aux questions, puis ouvre le corrigé de la série pour comprendre les erreurs.'}</p>
+ <p>${key==='exam'?'16 points sur le transport maritime et la palettisation, 4 points sur le chapitre 1. Les associations rapportent des points au prorata. La justification sur 4 points est à autoévaluer après validation. Le chrono continue si tu quittes la page.':key==='diagnostic'?'Vérifie chaque réponse pour voir la correction et le rappel de cours. La réponse est enregistrée dès la vérification. Ton bilan est en bas de la série.':'Réponds aux questions, puis ouvre le corrigé de la série pour comprendre les erreurs.'}</p>
  <div class="actions"><button class="primary" id="start-round">${key==='exam'?'Lancer les 25 minutes':'Démarrer'}</button>${key==='diagnostic'?link('cours','Passer au cours'):''}</div></section>`+extra;
  if(round.submitted) {
   return intro+`<section class="panel narrow"><h2>Résultat</h2><p id="score" role="status">${scoreLine(round)}</p>${round.timedOut?'<p>Temps écoulé. Les réponses enregistrées ont été remises.</p>':''}
   ${key==='diagnostic'?recommendations(round):''}<div class="actions"><button id="retry-round">${key==='exam'?'Refaire le partiel':'Essayer une autre série'}</button></div></section>`
   +`<div class="section narrow">${round.ids.map(([id,points],i)=>{
    const q=questionForRound(id,round),raw=round.answers[id];
-   const content=q.type==='written'?writtenCorrection(q,raw,round.manual[id],round.criteria?.[id]||[]):correction(q,raw,evaluate(q,raw));
-   return `<article class="question"><p class="eyebrow">Question ${i+1}${key==='exam'?' · '+points+' pt'+(points>1?'s':''):''}</p><h2>${q.prompt}</h2>${content}</article>`;
+   const content=q.type==='written'?writtenCorrection(q,raw,round.manual[id],round.criteria?.[id]||[]):key==='diagnostic'?diagnosticCorrection(q,raw):correction(q,raw,evaluate(q,raw));
+   return `<article class="question"${key==='diagnostic'?` id="question-${id}"`:''}><p class="eyebrow">Question ${i+1}${key==='exam'?' · '+points+' pt'+(points>1?'s':''):''}</p><h2>${q.prompt}</h2>${content}</article>`;
   }).join('')}</div>`+extra;
  }
  const restart=key==='diagnostic' || (key!=='exam' && !round.choiceOrder);
  return intro+`<form id="round-form" class="narrow">${key==='exam'?'<div class="timer" id="timer" role="timer" aria-label="Temps restant"></div>':''}
  ${!round.choiceOrder?'<p class="note">Cette série reprend les questions affichées au démarrage.</p>':''}
- ${round.ids.map(([id,points],i)=>question(questionForRound(id,round),i+1,key==='exam'?points:null,round)).join('')}
- <p class="error" id="round-error" role="alert" hidden></p><div class="actions"><button class="primary">${key==='exam'?'Remettre ma copie':'Corriger la série'}</button>${restart?'<button type="button" id="restart-round">Recommencer</button>':''}${key==='diagnostic'?link('cours','Passer au cours'):''}</div></form>`+extra;
+ ${round.ids.map(([id,points],i)=>question(questionForRound(id,round),i+1,key==='exam'?points:null,round,key==='diagnostic')).join('')}
+ <p class="error" id="round-error" role="alert" hidden></p><div class="actions"><button class="primary">${key==='exam'?'Remettre ma copie':key==='diagnostic'?'Voir mon bilan':'Corriger la série'}</button>${restart?'<button type="button" id="restart-round">Recommencer</button>':''}${key==='diagnostic'?link('cours','Passer au cours'):''}</div></form>`+extra;
 }
 function writtenCorrection(q,raw,manual,checked) {
  const enabled=hasAnswer(q,raw);
@@ -674,7 +719,7 @@ function submitRound(key,timedOut=false) {
  round.timedOut=timedOut;
  for(const [id] of round.ids) {
   const q=bank[id];
-  if(q.type!=='written' && hasAnswer(q,round.answers[id])) mark(q,evaluate(q,round.answers[id]));
+  if(q.type!=='written' && !round.checked?.[id] && hasAnswer(q,round.answers[id])) mark(q,evaluate(q,round.answers[id]));
  }
  save();
 }
@@ -751,17 +796,19 @@ function simulate(form) {
 }
 function render() {
  clearInterval(timerId);
- const [hash,anchor]=location.hash.slice(1).split('/');
- const id=pages[hash]?hash:'accueil';
+ const [hash,anchor,source]=location.hash.slice(1).split('/');
+ const id=Object.hasOwn(pages,hash)?hash:'accueil';
+ const fromQuestion=id==='cours' && Object.hasOwn(diagnosticTheory,source) && diagnosticLesson(source).anchor===anchor?source:'';
  const key=exercises[id];
  const round=key?roundFor(key):null;
  if(key==='exam' && round && !round.submitted && Date.now()>=round.deadline) submitRound(key,true);
- nav.innerHTML=Object.entries(pages).filter(([name])=>name!=='sources').map(([name,label])=>`<a href="#${name}" ${id===name?'aria-current="page"':''}>${label}</a>`).join('');
+ nav.innerHTML=Object.entries(pages).filter(([name])=>name!=='sources' && name!=='sur-mesure').map(([name,label])=>`<a href="#${name}" ${id===name?'aria-current="page"':''}>${label}</a>`).join('');
  nav.querySelector('[aria-current="page"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
- const staticPages={accueil:dashboard,cours:lessons,atelier,express:expressPage,chapitre1:chapter,sources:sourcePage};
- const preserveAnchor=anchor && lastRoute===id && id==='cours' && document.getElementById(anchor);
+ const staticPages={accueil:dashboard,cours:()=>lessons(fromQuestion),atelier,express:expressPage,chapitre1:chapter,sources:sourcePage,'sur-mesure':customApplications};
+ const preserveAnchor=anchor && lastRoute===id && id==='cours' && lastCourseReturn===fromQuestion && document.getElementById(anchor);
  if(!preserveAnchor) main.innerHTML=(storageWarning?'<p class="note">Le navigateur limite le stockage local. La progression peut disparaître à la fermeture.</p>':'')+(key?exercisePage(key,pages[id]):staticPages[id]());
  lastRoute=id;
+ lastCourseReturn=fromQuestion;
  if(anchor) {
   const target=document.getElementById(anchor);
   if(target) {
@@ -788,9 +835,16 @@ function activeExercise() {
 }
 function readRoundForm(form,round) {
  const data=new FormData(form);
- for(const [id] of round.ids) round.answers[id]=capture(data,bank[id]);
+ for(const [id] of round.ids) {
+  if(!round.checked?.[id]) round.answers[id]=capture(data,bank[id]);
+ }
  save();
 }
+main.addEventListener('keydown',event=>{
+ if(event.key!=='Enter' || event.isComposing || !event.target.matches('input:not([type="radio"])')) return;
+ const button=event.target.closest('.question')?.querySelector('[data-check]');
+ if(button){event.preventDefault();button.click();}
+});
 main.addEventListener('input',event=>{
  const form=event.target.closest('#round-form');
  if(form) readRoundForm(form,roundFor(activeExercise()));
@@ -817,7 +871,8 @@ main.addEventListener('submit',event=>{
   }
   if(key==='exam' && round.ids.some(([id])=>!hasAnswer(bank[id],round.answers[id])) && !window.confirm('Certaines questions sont vides. Remettre la copie maintenant ?')) return;
   submitRound(key,key==='exam'&&Date.now()>=round.deadline);
-  render();
+  if(key==='diagnostic' && location.hash!=='#diagnostic') location.hash='diagnostic';
+  else render();
   return;
  }
  if(form.dataset.practice){
@@ -842,12 +897,28 @@ main.addEventListener('submit',event=>{
 main.addEventListener('click',event=>{
  const button=event.target.closest('button');
  if(!button)return;
+ if(button.dataset.check){
+  const round=roundFor('diagnostic'),q=questionForRound(button.dataset.check,round);
+  const raw=capture(new FormData(button.form),q);
+  const feedback=document.getElementById('feedback-'+q.id);
+  if(!checkDiagnosticAnswer(round,q,raw)){
+   feedback.innerHTML='<p class="error">Réponds à cette question avant de vérifier.</p>';
+   return;
+  }
+  for(const field of button.closest('.question').querySelectorAll('input,select')) field.disabled=true;
+  button.hidden=true;
+  feedback.innerHTML=diagnosticCorrection(q,raw);
+  feedback.focus({preventScroll:true});
+  return;
+ }
  if(['start-round','retry-round','restart-round'].includes(button.id)) {
   const key=activeExercise();
   const previous=roundFor(key);
   if(button.id==='restart-round' && !window.confirm('Effacer les réponses de la série en cours et changer de série ?')) return;
   state.rounds[key]=buildRound(key,previous?previous.variant+1:0);
-  save();render();
+  save();
+  if(key==='diagnostic' && location.hash!=='#diagnostic') location.hash='diagnostic';
+  else render();
  }
  if(button.id==='reset' && window.confirm('Effacer la progression et les séries enregistrées sur cet appareil ?')){
   state={records:{},rounds:{}};save();render();
