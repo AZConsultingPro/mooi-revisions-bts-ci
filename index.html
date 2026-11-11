@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Révision BTS Commerce international : transport maritime, conteneurisation et palettisation.">
+<title>MOOI | Cap sur le partiel</title>
+<style>
+:root{color-scheme:light;--ink:#102b35;--muted:#48616a;--paper:#f4f5ef;--white:#fff;--line:#d5dfd9;--green:#0b5e4d;--mint:#d7efe3;--navy:#10343a;--orange:#ffd58b;--bad:#8b2826;--radius:18px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "DM Sans",system-ui,sans-serif}
+a{color:var(--green);text-underline-offset:.18em}
+button,input,textarea,select{font:inherit}
+button,select,input,textarea{color:var(--ink)}
+button,.button{display:inline-flex;justify-content:center;align-items:center;min-height:44px;padding:9px 16px;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink);font-weight:700;cursor:pointer;text-decoration:none;text-align:center}
+button:hover,.button:hover{background:#eff6f2}
+:focus-visible{outline:3px solid #a04915;outline-offset:3px}
+.primary{background:var(--green);border-color:var(--green);color:white}
+.primary:hover{background:#09493d}
+[hidden]{display:none!important}
+.skip{position:absolute;left:10px;top:-100px;z-index:5}.skip:focus{top:10px;background:white;padding:12px}
+.frame{width:min(1120px,calc(100% - 32px));margin-inline:auto}
+header{background:#fff;border-bottom:1px solid var(--line)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:65px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-weight:800}
+.mark{display:grid;place-items:center;width:36px;height:36px;background:var(--navy);color:white;border-radius:9px;font-size:14px}
+.signature{color:var(--muted);font-size:.83rem;text-align:right}
+nav{display:flex;gap:6px;overflow:auto;padding-block:4px 10px;scrollbar-width:thin}
+nav a{white-space:nowrap;display:flex;align-items:center;min-height:44px;text-decoration:none;padding:6px 11px;border-radius:8px;font-weight:650;color:var(--muted)}
+nav a[aria-current=page]{color:var(--green);background:var(--mint)}
+main{padding-block:25px 36px;min-height:70vh}
+h1,h2,h3,p{margin-block:0 12px}
+h1{font-size:clamp(2rem,6vw,4.25rem);line-height:1.02;letter-spacing:-.05em}
+h2{font-size:clamp(1.25rem,3.5vw,1.8rem);line-height:1.16;letter-spacing:-.025em}
+h3{font-size:1.04rem;line-height:1.35}
+.hero{position:relative;overflow:hidden;background:var(--navy);color:#fff;border-radius:24px;padding:28px 22px;min-height:260px}
+.hero p{color:#e2efe7;max-width:48ch}
+.hero .primary{background:var(--orange);color:#243333;border-color:var(--orange)}
+.hero .button:not(.primary){background:#214850;border-color:#6c8d86;color:#fff}
+.hero .button:hover{filter:brightness(1.08)}
+.hero-content{position:relative;z-index:1}
+.hero-art{display:none}
+.kicker,.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
+.hero .kicker{color:#ffd58b;margin-bottom:14px}
+.eyebrow{color:var(--green)}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+.section{margin-top:28px}
+.grid{display:grid;gap:12px}
+.cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
+.panel,.route,details,.question{background:white;border:1px solid var(--line);border-radius:var(--radius);padding:17px;min-width:0}
+.route{color:var(--ink);text-decoration:none;display:block}
+.route:hover{border-color:var(--green);background:#fbfefc}
+.route p,.muted,.source,small{color:var(--muted)}
+.route p:last-child,.panel p:last-child{margin-bottom:0}
+.route strong{display:block;color:var(--green);margin-top:9px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,155px),1fr));gap:10px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px}
+.stat strong{display:block;font-size:1.35rem;color:var(--green)}
+.page-title{max-width:750px;margin-bottom:22px}
+.page-title h1{font-size:clamp(2rem,5vw,3.3rem)}
+.split{display:grid;gap:15px}
+.narrow{max-width:820px}
+details{margin-bottom:9px;padding-block:0}
+summary{cursor:pointer;padding:12px 0;min-height:44px;font-weight:750}
+details > div{padding-bottom:13px}
+.source{font-size:.82rem}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.chips a{background:var(--mint);padding:7px 10px;border-radius:8px;font-weight:650;min-height:44px;display:inline-flex;align-items:center}
+.note{border-left:4px solid #cf9b47;background:#fff5df;padding:12px 14px;border-radius:6px;margin:14px 0}
+.good{background:#e5f6ed;border-left-color:#247052}
+.bad{background:#fff0ec;border-left-color:#a24540}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:.94rem}
+th,td{text-align:left;padding:9px;border-bottom:1px solid var(--line)}
+th{background:#ecf4ef}
+.scroll-table{overflow:auto;max-width:100%;margin:12px 0}
+.scroll-table:focus-visible{outline-offset:1px}
+label{display:block;font-weight:650}
+label input:not([type=radio]):not([type=checkbox]),label select,label textarea{margin-top:4px}
+input:not([type=radio]):not([type=checkbox]),textarea,select{width:100%;min-height:44px;border:1px solid #859c96;border-radius:8px;padding:9px;background:white}
+textarea{min-height:105px}
+input[type=radio],input[type=checkbox]{accent-color:var(--green);width:19px;height:19px;flex:none}
+.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,145px),1fr));gap:10px}
+.field{margin-bottom:10px}
+fieldset{border:0;padding:0;margin:0 0 12px;min-width:0}
+legend{font-weight:800;margin-bottom:8px}
+.pick{display:flex;align-items:center;gap:9px;background:#f6f8f4;border:1px solid var(--line);padding:10px;margin-bottom:7px;border-radius:9px;min-height:48px}
+.pick:has(:checked){border-color:var(--green);background:var(--mint)}
+.question{margin-bottom:12px}
+.question h2{font-size:1.23rem}
+.feedback ul{padding-left:22px}
+.feedback li{margin-bottom:5px}
+.timer{position:sticky;top:4px;z-index:2;background:var(--navy);color:#fff;border-radius:10px;padding:8px 14px;margin-bottom:14px;font-variant-numeric:tabular-nums}
+.error{color:var(--bad);font-weight:700;margin-top:10px}
+.plan{position:relative;width:min(100%,340px);background:#f4f5ef;border:2px solid #365b55;border-radius:5px;margin-top:12px;overflow:hidden}
+.parcel{position:absolute;display:grid;place-items:center;background:#a6ddca;border:1px solid #276253;color:#143b37;font-size:.75rem;font-weight:750}
+.parcel.rotated{background:#ffd58b}
+.flash{min-height:150px;background:var(--navy);color:white;padding:22px;border-radius:14px}
+.flash p{margin:0;color:#e2efe7}
+footer{border-top:1px solid var(--line);padding:16px 0 24px;color:var(--muted);font-size:.86rem}
+footer .frame{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media(min-width:650px){.frame{width:min(1120px,calc(100% - 64px))}main{padding-top:33px}.hero{padding:36px}.split{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}.panel,.route,.question{padding:21px}.hero-art{display:grid;position:absolute;right:3%;bottom:16%;width:36%;transform:skewY(-8deg);grid-template-columns:repeat(3,1fr);gap:7px;opacity:.48}.hero-art i{height:38px;background:repeating-linear-gradient(90deg,#d2e6db 0 2px,#2f6964 2px 10px);border:2px solid #a9cbc0;border-radius:4px}.hero-art i:nth-child(3n){background:repeating-linear-gradient(90deg,#ffcb7e 0 2px,#a87537 2px 10px)}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">Aller au contenu</a>
+<header><div class="frame"><div class="top"><a class="brand" href="#accueil"><span class="mark" aria-hidden="true">M</span><span>MOOI <span class="muted">· BTS CI</span></span></a><span class="signature">AZ Consulting</span></div>
+<nav aria-label="Modules" id="nav"></nav></div></header>
+<main class="frame" id="main" tabindex="-1"></main>
+<footer><div class="frame"><span>Mise en œuvre des opérations internationales</span><a href="#sources">Sources et limites</a></div></footer>
+<noscript>Active JavaScript pour accéder aux exercices et au simulateur.</noscript>
+<script>
+const groups = {nav:'Transport maritime', box:'Conteneurs', flow:'FCL et LCL', pallet:'Palettisation', logistics:'Logistique internationale'};
+const course = [
+ ['nav','Navires et conteneurisation','Cours maritime · p. 2',[
+  ['Choisir le navire selon la marchandise','Pétrolier (tanker) : pétrole. Méthanier : gaz liquéfié (ici gaz naturel liquéfié). Chimiquier : produits chimiques. Céréalier : céréales. Vraquier : marchandises en vrac. Ro-Ro : véhicules et marchandises roulantes.'],
+  ['Comprendre le Ro-Ro','Les véhicules roulent à bord par une rampe arrière ou latérale. Un ferry peut fonctionner ainsi. Certains navires disposent d’une grue ou d’un palan pour aider aux opérations.'],
+  ['Pourquoi conteneuriser ?','La caisse en acier non motorisée, normalisée et réutilisable, facilite entreposage, manutention et transfert vers le camion. Moins de manipulations directes des colis réduit les risques de casse, perte ou vol et peut réduire les coûts logistiques.']
+ ]],
+ ['box','Types, dimensions et coûts','Cours maritime · p. 2–3',[
+  ['Dry','Conteneur standard pour des marchandises générales qui ne requièrent pas une température contrôlée. Exemple : vêtements emballés.'],
+  ['Reefer','Conteneur à température contrôlée capable de refroidir ou chauffer. Exemple : produits surgelés.'],
+  ['Flat Rack et Open Top','Flat Rack : plateforme avec extrémités fixes ou rabattables selon le modèle, adaptée aux marchandises encombrantes ou hors gabarit. Open Top : ouverture par le dessus, utile pour charger à la verticale à la grue ou lorsque les portes sont inadaptées.'],
+  ['Location ou détention','Une entreprise peut détenir ou louer le conteneur. Exemples de cours pour un 40 pieds au départ de Shanghai : Rotterdam 3 626 $, Los Angeles 7 514 $, New York 9 631 $. Exemples historiques non datés dans le support.'],
+  ['Vérifier le matériel réel','Les chiffres ci-dessous sont ceux du support. La hauteur 2,89 m du High Cube soulève une ambiguïté entre hauteur intérieure et extérieure. Utiliser la fiche du matériel pour les cotes intérieures, l’ouverture des portes et la charge utile.']
+ ]],
+ ['flow','FCL, LCL et opérations','Cours maritime · p. 3–6',[
+  ['FCL · Full Container Load','Le conteneur est utilisé en exclusivité dans le schéma du cours, même avec des espaces vides. Un seul lot au départ ne nécessite pas de groupage.'],
+  ['LCL · Less than Container Load','Envoi partiel. Le chargeur remet des colis, palettes, caisses ou fûts. Le groupeur rassemble plusieurs expéditions dans un même conteneur.'],
+  ['Lire dans l’ordre départ → arrivée','FCL/FCL : un expéditeur → un destinataire, sans groupage ni dégroupage. LCL/LCL : plusieurs → plusieurs, avec groupage et dégroupage. FCL/LCL : un → plusieurs, dégroupage à l’arrivée. LCL/FCL : plusieurs → un, groupage au départ.'],
+  ['Après le port','Dans le schéma du cours, le dégroupage a lieu au terminal lorsque plusieurs destinataires doivent être servis. Un conteneur destiné à un client peut repartir par camion pour le post-acheminement. Le transitaire organise le transport et les formalités associées.']
+ ]],
+ ['pallet','Palettiser et empoter','Cours maritime · p. 4–6',[
+  ['Palettes EURO et ISO','EURO : 1,20 × 0,80 m. ISO : 1,20 × 1,00 m. Une palette regroupe les colis en une unité de manutention normalisée et réutilisable. La charge admise dépend de la palette. Le gerbage est possible si le conditionnement le permet.'],
+  ['Calculer en trois divisions','Pour chaque orientation permise, diviser la longueur, la largeur et la hauteur utile par la dimension correspondante du colis. Arrondir chaque quotient à l’entier inférieur. Multiplier les trois entiers, puis comparer les orientations.'],
+  ['Reproduire les 32 colis du cours','Palette ISO et hauteur utile de 1,50 m. Colis orienté 0,30 × 0,50 × 0,35 m : ⌊1,20 ÷ 0,30⌋ = 4, ⌊1,00 ÷ 0,50⌋ = 2 et ⌊1,50 ÷ 0,35⌋ = 4. Total : 4 × 2 × 4 = 32.'],
+  ['Planifier l’empotage','Contrôler l’état et la propreté du conteneur. Répartir la masse sur le plancher, placer le lourd au milieu et en bas, limiter les vides et vérifier le gerbage. Après la palette, refaire les contrôles à l’échelle du conteneur et des portes.']
+ ]],
+ ['logistics','Chapitre 1 · Organisation de la logistique','MOOI · chap. 1, p. 1–2',[
+  ['Les trois flux','La logistique met le produit à disposition au bon endroit, au bon moment, au moindre coût compatible avec la qualité. La chaîne mobilise ressources, méthodes et outils du premier fournisseur au client final. Flux matériel : marchandises. Flux d’information : commandes et suivi. Flux financier : paiements et factures dans leur dimension financière.'],
+  ['Amont, in situ et aval','Amont : activités avant production, comme l’approvisionnement. In situ : opérations au sein de l’entreprise, comme la gestion du stock et le contrôle des approvisionnements. Aval : activités après production, comme l’expédition des produits finis.'],
+  ['Enjeux et sous-traitance','La logistique, liée aux achats dans les notes, contribue à la satisfaction, à l’image, à la rentabilité et à la différenciation. Externaliser permet de bénéficier d’un spécialiste et de se concentrer sur son métier. En contrepartie, il faut piloter la dépendance et la qualité du service.'],
+  ['Acteurs et critères','Le transporteur effectue le transport. Le transitaire peut l’organiser et le groupeur réunit des lots LCL (rappels du cours maritime). Comparer coût, délai et sécurité. Les exemples cités couvrent notamment le maritime (MSC, Maersk), l’aérien (Air France), le ferroviaire (SNCF) et les opérateurs logistiques (GEODIS, DHL).']
+ ]]
+];
+const lexicon = {
+ 'Chargeur':'Expéditeur qui confie sa marchandise au transporteur.',
+ 'Transporteur':'Acteur chargé d’effectuer le transport de la marchandise.',
+ 'Transitaire':'Professionnel qui organise le transport et les formalités associées.',
+ 'Groupeur':'Intermédiaire qui réunit plusieurs expéditions LCL.',
+ 'Groupage':'Réunion des lots au départ.',
+ 'Dégroupage':'Séparation des lots à destination.',
+ 'Empotage':'Chargement des marchandises dans le conteneur.',
+ 'Dépotage':'Déchargement des marchandises du conteneur.',
+ 'Gerbage':'Empilement de colis ou de palettes lorsque la charge le permet.',
+ 'Post-acheminement':'Transport depuis le port ou terminal d’arrivée jusqu’au lieu convenu.',
+ 'Charge utile':'Masse de marchandise admise, avec ses emballages et supports le cas échéant. La tare du conteneur se distingue de sa charge utile.',
+ 'FCL':'Full Container Load. Conteneur réservé en exclusivité dans le schéma du cours.',
+ 'LCL':'Less than Container Load. Expédition en groupage ou remise par lots à une extrémité du trajet.',
+ 'Ro-Ro':'Roll-on/Roll-off. Chargement roulant via une rampe.',
+ 'High Cube':'Variante de conteneur offrant davantage de hauteur que le standard.'
+};
+const dimensions = [['20 pieds','5,90 × 2,35 × 2,39','22 100'],['40 pieds','12,05 × 2,35 × 2,39','24 400'],['40 pieds High Cube','12,05 × 2,35 × 2,89','29 600']];
+const bank = {};
+function choice(id, topic, objective, prompt, answers) {
+ bank[id] = {id, topic, objective, prompt, type:'choice', answers, format:'Choisis une réponse.', success:'Choisir la proposition qui respecte toutes les données.'};
+}
+function number(id,topic,objective,prompt,answer,explain) {
+ bank[id] = {id,topic,objective,prompt,type:'number',answer,explain,format:'Saisis un entier seul, sans unité.',success:'Obtenir le bon entier avec les quotients tronqués ou la limite indiquée.'};
+}
+function short(id,topic,objective,prompt,accepted,explain) {
+ bank[id] = {id,topic,objective,prompt,type:'short',accepted,explain,format:'Saisis le terme ou le sigle demandé.',success:'Identifier le terme exact. Les accents, espaces et majuscules sont tolérés.'};
+}
+function matching(id,topic,objective,prompt,pairs,explain) {
+ bank[id] = {id,topic,objective,prompt,type:'match',pairs,explain,format:'Sélectionne un terme pour chaque ligne.',success:'Associer correctement toutes les lignes.'};
+}
+function written(id,topic,objective,prompt,checks,example) {
+ bank[id] = {id,topic,objective,prompt,type:'written',checks,example,format:'Rédige 2 à 4 phrases. Compare ensuite ton raisonnement au corrigé.',success:'Les critères et leurs points figurent ci-dessous.'};
+}
+
+choice('ro','nav','Reconnaître le chargement roulant','Des camions doivent monter à bord par une rampe. Quel navire réserver ?',[
+ ['Ro-Ro','Une rampe permet aux camions de rouler jusqu’à leur emplacement.'],
+ ['Vraquier','Sa spécialité est le vrac, comme des minerais, et non les véhicules sur roues.'],
+ ['Chimiquier','Il transporte des produits chimiques, pas des camions par rampe.']
+]);
+choice('std','nav','Expliquer un avantage','Quel effet la standardisation du conteneur permet-elle ?',[
+ ['Moins de manipulations des colis entre navire et camion','On peut déplacer le conteneur comme une unité et réduire l’exposition des colis.'],
+ ['La disparition des avaries','Des risques subsistent, notamment si la charge est mal calée.'],
+ ['La suppression du post-acheminement','Il faut toujours organiser le trajet après le terminal si le lieu de livraison est ailleurs.']
+]);
+matching('ships','nav','Associer navires et cargaisons','Associe chaque cargaison au navire spécialisé du cours.',[
+ ['Pétrole','Pétrolier'],['Gaz naturel liquéfié','Méthanier'],['Produits chimiques','Chimiquier'],['Céréales','Céréalier'],['Minerai en vrac','Vraquier']
+],'Un céréalier est spécialisé dans les céréales. Un vraquier transporte du vrac, ici du minerai.');
+choice('reef','box','Choisir selon la température','Un lot de produits doit rester à −18 °C pendant la traversée. Quel type sélectionner ?',[
+ ['Reefer','Il permet de maintenir la température requise. Vérifier le réglage et la continuité de l’alimentation.'],
+ ['Dry','Il ne régule pas la température.'],
+ ['Open Top','Son ouverture facilite le chargement, sans assurer de froid.']
+]);
+choice('open','box','Choisir selon le mode de chargement','Une machine reste dans le gabarit intérieur d’un conteneur adapté, mais doit être descendue verticalement à la grue. Quel type répond au besoin ?',[
+ ['Open Top','L’ouverture supérieure donne accès au chargement vertical.'],
+ ['Dry','Le toit fixe empêche le chargement décrit.'],
+ ['Reefer','Le froid ne résout pas l’accès par le dessus.']
+]);
+short('flat','box','Identifier un conteneur','Quelle plateforme conteneurisée à extrémités fixes ou rabattables peut convenir à une pièce très large hors gabarit ?', ['flat rack','flatrack'],'Un Flat Rack offre une plateforme adaptée à l’encombrement. Faire confirmer gabarit, arrimage et acceptation.');
+choice('weight','box','Distinguer volume et masse','Dans un exercice, un 40 pieds standard a une charge utile de 24 400 kg. Un lot de 25 000 kg entre géométriquement. Que conclure ?',[
+ ['Refuser cette configuration : dépassement de 600 kg','25 000 − 24 400 = 600 kg, avant tout poids de supports éventuellement omis.'],
+ ['Accepter car le lot entre','La compatibilité géométrique ne valide pas la masse.'],
+ ['Accepter si la marchandise est gerbable','Le gerbage n’augmente pas la charge utile.']
+]);
+choice('high','box','Lire la fiche du matériel','Une caisse mesure 2,65 m de haut. Le cours annonce 2,89 m pour le High Cube. Quelle vérification est indispensable avant réservation ?',[
+ ['Mesurer ou confirmer la hauteur utile et l’ouverture des portes','Le repère du cours ne prouve ni le dégagement intérieur ni le passage à la porte.'],
+ ['Vérifier uniquement la longueur','La hauteur est la contrainte déterminante ici.'],
+ ['Réserver directement avec le chiffre du cours','La cote 2,89 m est ambiguë dans le tableau et doit être confirmée.']
+]);
+choice('rate','box','Interpréter un tarif du support','Que représente le montant de 3 626 $ pour Shanghai–Rotterdam en 40 pieds ?',[
+ ['Un exemple du cours','Le support ne garantit ni la date, ni le périmètre exact, ni un tarif de réservation.'],
+ ['Un tarif garanti aujourd’hui','Aucun devis actualisé n’est fourni.'],
+ ['Une charge utile de 3 626 kg','Le symbole $ indique un montant.']
+]);
+choice('fcl','flow','Distinguer exclusivité et taux de remplissage','Un conteneur est réservé pour un seul expéditeur vers un seul client. Il est rempli à 60 %. Quel schéma ?',[
+ ['FCL/FCL','Il n’y a ni groupage au départ ni séparation entre clients à l’arrivée.'],
+ ['LCL/LCL','Le faible remplissage n’implique pas le partage du conteneur.'],
+ ['FCL/LCL','Aucun dégroupage entre plusieurs destinataires n’est prévu.']
+]);
+choice('split','flow','Lire départ et arrivée','Une entreprise exporte un conteneur dédié avec des lots à séparer entre trois clients au terminal d’arrivée. Quel schéma ?',[
+ ['FCL/LCL','Un seul expéditeur au départ, dégroupage à l’arrivée.'],
+ ['LCL/FCL','Ce schéma inverse les opérations du cas.'],
+ ['FCL/FCL','Il manquerait le dégroupage à destination.']
+]);
+choice('merge','flow','Identifier le groupage à l’origine','Trois fournisseurs partagent un conteneur à l’origine, remis entier à un acheteur au port d’arrivée. Quel schéma ?',[
+ ['LCL/FCL','Groupage au départ, sans dégroupage entre plusieurs acheteurs à l’arrivée.'],
+ ['FCL/LCL','Ce serait un seul expéditeur et plusieurs acheteurs.'],
+ ['LCL/LCL','Il y aurait aussi dégroupage à l’arrivée.']
+]);
+choice('lcl','flow','Justifier le groupage','Un exportateur envoie deux palettes sèches sans exigence d’exclusivité. Le devis LCL tout compris est moins cher et respecte le délai. Quel choix ?',[
+ ['LCL, en confirmant la protection et les manutentions prévues','Le partage répond au petit volume et aux données de prix et de délai.'],
+ ['FCL, car deux palettes imposent une réservation entière','Aucune exclusivité n’est imposée par le cas.'],
+ ['Reefer, parce qu’il y a groupage','Le contrôle de température et le mode de partage sont deux décisions distinctes.']
+]);
+choice('shared','flow','Repérer le groupage aux deux extrémités','Plusieurs expéditeurs partagent un conteneur, puis le terminal sépare les lots pour livrer plusieurs clients. Quel schéma ?',[
+ ['LCL/LCL','Groupage à l’origine et dégroupage à destination.'],
+ ['FCL/LCL','Le départ en FCL du schéma de cours suppose un seul lot au départ.'],
+ ['LCL/FCL','Il manquerait le dégroupage entre les clients.']
+]);
+matching('terms','flow','Nommer les opérations','Associe chaque opération à son terme.',[
+ ['Charger les marchandises dans le conteneur','Empotage'],['Vider le conteneur','Dépotage'],['Réunir les lots à l’origine','Groupage'],['Séparer les lots à destination','Dégroupage']
+],'Empoter et dépoter décrivent la manutention du conteneur. Grouper et dégrouper décrivent l’organisation des lots.');
+short('road','flow','Identifier la dernière étape','Quel terme désigne le trajet en camion du port d’arrivée au dépôt du destinataire ?', ['post acheminement','postacheminement'],'Le post-acheminement intervient après le transport principal.');
+number('iso','pallet','Reproduire le calcul du cours','Palette ISO 1,20 × 1,00 m, hauteur utile 1,50 m. Les colis sont gerbables, orientés 0,30 × 0,50 × 0,35 m (L × l × h). Combien de colis ?',32,'⌊1,20 ÷ 0,30⌋ = 4, ⌊1,00 ÷ 0,50⌋ = 2 et ⌊1,50 ÷ 0,35⌋ = 4. Total : 4 × 2 × 4 = 32 colis.');
+number('euro','pallet','Appliquer la méthode avec une autre palette','Palette EURO 1,20 × 0,80 m, hauteur utile 1,10 m. Colis gerbables orientés 0,40 × 0,25 × 0,30 m (L × l × h). Combien ?',27,'⌊1,20 ÷ 0,40⌋ = 3, ⌊0,80 ÷ 0,25⌋ = 3, ⌊1,10 ÷ 0,30⌋ = 3. Total : 27. Arrondir chaque quotient avant de multiplier.');
+number('fixed','pallet','Respecter une orientation imposée','Palette ISO 1,20 × 1,00 m et hauteur utile 1,00 m. Colis gerbables orientés 0,50 × 0,40 × 0,45 m, orientation imposée. Combien ?',8,'⌊1,20 ÷ 0,50⌋ = 2, ⌊1,00 ÷ 0,40⌋ = 2, ⌊1,00 ÷ 0,45⌋ = 2. Soit 8 colis.');
+number('mass','pallet','Limiter un résultat par la masse','Le plan permet 32 emplacements. Chaque colis pèse 16 kg et la palette admet au maximum 480 kg de marchandises hors tare. En supposant le retrait possible sans déstabiliser le plan, combien au maximum par la masse ?',30,'⌊480 ÷ 16⌋ = 30. Prendre le minimum entre la limite de masse (30) et la capacité géométrique (32).');
+choice('safe','pallet','Organiser l’empotage','Quelle méthode réduit le risque de déséquilibre dans un conteneur ?',[
+ ['Répartir la charge et placer le lourd bas, vers le milieu','Contrôler aussi les vides, le calage, la résistance au gerbage et l’état du conteneur.'],
+ ['Placer le lourd au-dessus des colis légers','Le centre de gravité remonte et les colis bas peuvent s’écraser.'],
+ ['Concentrer toute la masse à une extrémité','Cette répartition déséquilibre la charge.']
+]);
+choice('mixed','pallet','Interpréter une optimisation','Les six orientations uniformes donnent au mieux 32 colis. Que peut-on affirmer ?',[
+ ['32 est le meilleur des six essais uniformes','Des arrangements mixtes peuvent améliorer ce résultat. Le module montre un plan à 33.'],
+ ['32 est forcément l’optimum absolu','Les orientations mixtes ne sont pas explorées par les six grilles uniformes.'],
+ ['La charge réelle est automatiquement autorisée','Le poids, le calage et la stabilité restent à vérifier.']
+]);
+number('floor','pallet','Passer des colis aux palettes dans le conteneur','Conteneur 20 pieds du cours : plancher 5,90 × 2,35 m. Palette ISO 1,20 × 1,00 m, orientation uniforme imposée, longueur alignée. Combien de palettes sur un seul niveau ? Ignore le jeu de manutention pour ce calcul.',8,'⌊5,90 ÷ 1,20⌋ = 4 et ⌊2,35 ÷ 1,00⌋ = 2. Résultat : 8 dans cette orientation. Pour charger réellement, contrôler accès, calage et charge utile.');
+choice('up','logistics','Reconnaître l’amont','Une usine réceptionne des composants avant de les transformer. Quelle partie de la chaîne est concernée ?',[
+ ['Logistique amont','Il s’agit de l’approvisionnement avant la production.'],
+ ['Logistique aval','L’aval intervient après la production.'],
+ ['Flux financier uniquement','La réception décrit aussi un déplacement physique de composants.']
+]);
+matching('flows','logistics','Reconnaître les trois flux','Associe chaque événement au flux principal.',[
+ ['Un lot est livré à l’usine','Matériel'],['Un avis d’expédition est envoyé','Information'],['Un virement règle la commande','Financier']
+],'Les trois flux se coordonnent : on expédie, on transmet l’information et on règle la transaction.');
+choice('out','logistics','Choisir un transporteur','A coûte 500 €, livre en 4 jours et ne garantit pas le suivi requis. B coûte 580 €, livre en 2 jours et garantit le suivi. Le client impose 3 jours maximum et le suivi. Qui choisir ?',[
+ ['B','B respecte les contraintes de délai et de sécurité. Comparer les coûts entre offres conformes.'],
+ ['A','Son prix est inférieur mais il échoue sur les deux contraintes imposées.'],
+ ['Le premier qui répond','La rapidité de réponse ne valide ni le délai de livraison ni le suivi.']
+]);
+choice('outs','logistics','Évaluer la sous-traitance','Quel compromis doit piloter une entreprise qui externalise sa logistique ?',[
+ ['Accès à un spécialiste et risque de dépendance','La sous-traitance libère des ressources internes, avec un suivi nécessaire de la qualité et des délais.'],
+ ['Indépendance totale et perte obligatoire des clients','La dépendance peut augmenter, et la perte de clientèle n’est pas automatique.'],
+ ['Disparition des flux matériels et financiers','L’entreprise délègue des opérations, les flux continuent.']
+]);
+short('in','logistics','Identifier la logistique interne','Quel terme du cours désigne les activités logistiques au sein même de l’entreprise ?', ['in situ','insitu','in situs'],'La logistique in situ inclut la gestion des stocks internes et la coordination des flux.');
+written('case','flow','Argumenter un schéma et une mesure de protection','Une PME expédie des pièces sèches et fragiles à trois distributeurs. Le conteneur lui est réservé, puis les lots sont séparés au terminal d’arrivée. Nomme le schéma, justifie ses deux extrémités et propose une mesure contre les chocs.',[
+ ['Identifier FCL/LCL',1],['Justifier l’absence de groupage au départ',1],['Justifier le dégroupage à l’arrivée',1],['Proposer une mesure de protection adaptée',1]
+],'FCL/LCL : le conteneur est réservé à un seul expéditeur au départ, donc sans groupage. Les trois destinataires imposent le dégroupage à l’arrivée. Un calage adapté et des emballages protecteurs limitent les chocs pendant les manipulations.');
+written('justify','box','Choisir un type et contrôler le chargement','Une machine large ne rentre pas dans un conteneur fermé. Elle doit être chargée par le dessus et peut dépasser latéralement. Propose un type et indique deux vérifications avant de réserver.',[
+ ['Proposer un Flat Rack adapté',1],['Justifier par le dépassement latéral',1],['Vérifier masse ou gabarit accepté',1],['Vérifier arrimage, appuis ou manutention',1]
+],'Le Flat Rack offre une plateforme adaptée à un dépassement latéral sous réserve d’acceptation. Je confirme les cotes hors gabarit et la charge utile, puis je valide les appuis, le levage et le plan d’arrimage.');
+const sets = {
+ diagnostic:[['ro','reef','fcl','iso','mixed','up','out','weight','terms','safe'],['ships','open','merge','euro','mass','flows','outs','high','road','fixed']],
+ training:[['ships','std','reef','rate','fcl','terms','euro','mass','flows','up'],['ro','flat','high','weight','split','road','fixed','floor','outs','in'],['ships','open','shared','lcl','safe','mixed','iso','mass','out','flows']],
+ cases:[['lcl','open','weight','safe','case'],['reef','merge','high','floor','justify']],
+ exam:[['ro',1],['reef',1],['split',1],['terms',2],['iso',3],['mass',2],['safe',2],['case',4],['flows',2],['out',2]]
+};
+const express = [
+ ['Conteneurs','Dry : sec standard. Reefer : température contrôlée. Open Top : accès supérieur. Flat Rack : encombrement ou hors gabarit. High Cube : davantage de hauteur, dimensions utiles à confirmer.'],
+ ['FCL/LCL','Lis départ puis arrivée. FCL : conteneur en exclusivité dans le schéma du cours, même partiellement rempli. LCL : groupage au départ ou dégroupage à l’arrivée, selon sa position.'],
+ ['Palette ISO','1,20 × 1,00 m. EURO : 1,20 × 0,80 m. Divise chaque dimension et arrondis à l’entier inférieur avant de multiplier. Repère du cours : 4 × 2 × 4 = 32.'],
+ ['Contrôles de chargement','Vérifie dimensions utiles et portes, masse, calage, répartition et gerbage. Distingue hauteur utile des colis et hauteur totale palette comprise.'],
+ ['Chapitre 1','Flux matériel, information et financier. Amont avant production, aval après production. Transporteur : coût, délai, sécurité.']
+];
+/* Calculs et suivi local */
+const normalize = s => String(s ?? '').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase().replace(/[^a-z0-9]/g,'');
+function scaled(raw) {
+ const value = String(raw).trim().replace(',','.');
+ if (!/^(?:\d+(?:\.\d{1,3})?|\.\d{1,3})$/.test(value)) return NaN;
+ const [whole, fraction=''] = value.split('.');
+ return Number(whole || 0) * 1000 + Number(fraction.padEnd(3,'0'));
+}
+const permutations = [[0,1,2],[1,0,2],[0,2,1],[2,0,1],[1,2,0],[2,1,0]];
+function calculate(space, box, upright, stackable, mass, limit) {
+ const axes = upright ? permutations.slice(0,2) : permutations;
+ const seen = new Set();
+ const result = [];
+ for (const indexes of axes) {
+  const d = indexes.map(i => box[i]);
+  const key = d.join('/');
+  if (seen.has(key)) continue;
+  seen.add(key);
+  const quotients = space.map((size,i) => size/d[i]);
+  const counts = space.map((size,i) => Math.floor(size/d[i]));
+  if (!stackable) counts[2] = Math.min(1,counts[2]);
+  const count = counts.reduce((a,b) => a*b,1);
+  result.push({d,quotients,counts,count,usable:mass == null ? count : Math.min(count,Math.floor(limit/mass))});
+ }
+ return result.sort((a,b)=>b.usable-a.usable || b.count-a.count);
+}
+const STORAGE = 'mooi-bts-ci-v1';
+let storageWarning = false;
+function getState() {
+ try { return JSON.parse(localStorage.getItem(STORAGE)) || {records:{},rounds:{}}; }
+ catch { storageWarning = true; return {records:{},rounds:{}}; }
+}
+let state = getState();
+function save() {
+ try { localStorage.setItem(STORAGE,JSON.stringify(state)); }
+ catch { storageWarning = true; }
+}
+function mark(q, score) {
+ const record = state.records[q.id] || {attempts:0};
+ state.records[q.id] = {attempts:record.attempts+1,topic:q.topic,last:score};
+ save();
+}
+function evaluate(q, raw) {
+ if (q.type === 'choice') return raw === '0' ? 1 : 0;
+ if (q.type === 'number') {
+  const value = String(raw ?? '').trim();
+  return /^\d+$/.test(value) && Number(value) === q.answer ? 1 : 0;
+ }
+ if (q.type === 'short') return q.accepted.some(a=>normalize(a) === normalize(raw)) ? 1 : 0;
+ if (q.type === 'match') return q.pairs.filter((pair,i)=>pair[1] === raw?.[i]).length/q.pairs.length;
+ return null;
+}
+function rankedTopics() {
+ return Object.keys(groups).map(topic => {
+  const records = Object.values(state.records).filter(r=>r.topic===topic);
+  return {topic, tested:records.length, score:records.length ? records.reduce((sum,r)=>sum+r.last,0)/records.length : null};
+ });
+}
+/* Navigation et rendu */
+const nav = document.getElementById('nav');
+const main = document.getElementById('main');
+const pages = {
+ accueil:'Accueil', diagnostic:'Diagnostic', cours:'Cours', entrainement:'Entraînement',
+ atelier:'Palettisation', cas:'Cas pratiques', partiel:'Partiel blanc', express:'Révision express',
+ chapitre1:'Chapitre 1', sources:'Sources et limites'
+};
+const exercises = {diagnostic:'diagnostic',entrainement:'training',cas:'cases',partiel:'exam'};
+const routes = [
+ ['cours','Les fiches de cours','Navires, conteneurs, FCL/LCL et chargement.'],
+ ['atelier','Atelier de palettisation','Compare les orientations et visualise un plan de couche.'],
+ ['entrainement','Mémorisation active','Cartes mémoire, associations, réponses courtes et calculs.'],
+ ['cas','Situations professionnelles','Prends une décision d’expédition et justifie-la.'],
+ ['partiel','Partiel blanc','25 minutes, barème sur 20 et corrigé détaillé.'],
+ ['chapitre1','Consolidation du chapitre 1','Retrouve les trois flux, les acteurs et les critères de choix.']
+];
+const fr = new Intl.NumberFormat('fr-FR',{maximumFractionDigits:3});
+const pct = n => Math.round(n*100)+' %';
+const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const title = (label,desc) => `<div class="page-title"><h1>${label}</h1><p class="muted">${desc}</p></div>`;
+const link = (to,label,primary=false) => `<a class="button ${primary?'primary':''}" href="#${to}">${label}</a>`;
+const table = (label,cols,rows) => `<div class="scroll-table" role="region" aria-label="${label}" tabindex="0"><table><thead><tr>${cols.map(c=>`<th scope="col">${c}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
+const termList = () => Object.keys(lexicon).map((term,i)=>`<a href="#cours/terme-${i}">${term}</a>`).join('');
+let flashIndex = 0;
+let chapterRound = 0;
+let timerId;
+let lastRoute = '';
+const flashcards = [...Object.entries(lexicon),...express.filter(([label])=>label==='Palette ISO')];
+
+function dashboard() {
+ const records = Object.values(state.records);
+ const tried = records.length;
+ const full = records.filter(r=>r.last===1).length;
+ const topics = rankedTopics();
+ const progress = topics.map(({topic,tested,score})=>[groups[topic],tested ? fr.format(tested) : '0', tested ? pct(score) : 'À découvrir']);
+ return `<section class="hero"><div class="hero-content"><p class="kicker">BTS Commerce international · 12 novembre 2026</p><h1>Cap sur le partiel</h1><p>Révise le transport maritime, entraîne-toi à choisir le bon conteneur et refais les calculs de palettisation.</p><div class="actions">${link('diagnostic','Faire le diagnostic',true)}${link('express','Réviser en 5 min')}</div></div><div class="hero-art" aria-hidden="true">${'<i></i>'.repeat(9)}</div></section>
+ <section class="section"><h2>Mes parcours</h2><div class="grid cards">${routes.map(([id,name,desc])=>`<a class="route" href="#${id}"><h3>${name}</h3><p>${desc}</p><strong>Ouvrir <span aria-hidden="true">→</span></strong></a>`).join('')}</div></section>
+ <section class="section" id="progression"><h2>Ma progression</h2><div class="stats"><div class="stat"><strong>${tried} / ${Object.keys(bank).length}</strong>Exercices corrigés</div><div class="stat"><strong>${full}</strong>Dernières réponses entièrement justes</div><div class="stat"><strong>${tried-full}</strong>Exercices à retravailler</div></div>
+ <div class="panel section">${table('Progression par notion',['Notion','Exercices corrigés','Réussite'],progress)}<p class="source">Réussite par notion calculée sur la dernière correction de chaque exercice. Les associations peuvent rapporter une fraction. Les réponses rédigées comptent après autoévaluation.</p>
+ <button id="reset">Réinitialiser ma progression</button><p id="reset-note" role="status"></p></div></section>`;
+}
+function courseCard(card) {
+ const [id,label,source,items] = card;
+ return `<section class="section" id="fiche-${id}"><h2>${label}</h2><p class="source">${source}</p>
+ ${items.map(([t,p])=>`<details><summary>${t}</summary><div>${p}</div></details>`).join('')}
+ ${id==='box'?table('Dimensions du support',['Conteneur','L × l × h (m)','Poids chargeable (kg)'],dimensions):''}
+ ${id==='flow'?table('Schémas de cours',['Schéma','Départ','Arrivée'],[['FCL/FCL','1 expéditeur','1 destinataire'],['LCL/LCL','Groupage','Dégroupage'],['FCL/LCL','1 expéditeur','Dégroupage'],['LCL/FCL','Groupage','1 destinataire']]):''}
+ </section>`;
+}
+function lessons() {
+ return title('Cours interactif','Ouvre une fiche, puis vérifie que tu peux l’appliquer à un exercice.')+
+ `<div class="chips">${course.map(([id,label])=>`<a href="#cours/fiche-${id}">${label}</a>`).join('')}<a href="#cours/lexique">Lexique</a></div>`+
+ course.map(courseCard).join('')+
+ `<section class="section" id="lexique"><h2>Lexique cliquable</h2><div class="chips">${termList()}</div>${Object.entries(lexicon).map(([k,v],i)=>`<details id="terme-${i}"><summary>${k}</summary><div>${v}</div></details>`).join('')}</section>`+
+ `<div class="actions">${link('entrainement','M’entraîner',true)}${link('atelier','Tester la palettisation')}</div>`;
+}
+function sourcePage() {
+ return title('Sources et limites','Repères pour distinguer les données du support et les hypothèses des exercices.')+`
+ <div class="grid cards"><article class="panel"><h2>Les deux supports</h2><p><strong>Cours_MOOI_transport_maritime_conteneurisation.docx</strong>, p. 2 à 6. Navires, conteneurs, FCL/LCL, chargement, palettisation et lexique.</p><p><strong>MOOI.docx</strong>, chapitre 1, p. 1 à 2. Les autres chapitres servent à délimiter le programme de révision. Les sigles Incoterms transcrits de façon variable et la formule du taux de marge sur coût variable sont hors du parcours.</p></article>
+ <article class="panel"><h2>Données du cours à confirmer</h2><p>Le tableau donne 2,89 m pour le High Cube sans préciser la hauteur utile. Les cotes, portes, charges et tarifs du cours demandent une confirmation sur le matériel ou le devis réel.</p><p>« Méthanier » a été précisé en « gaz naturel liquéfié ». La description du Flat Rack a été reformulée pour tenir compte des extrémités fixes ou rabattables.</p></article>
+ <article class="panel"><h2>Compléments pédagogiques</h2><p>Les cas, variantes chiffrées, schémas, barèmes et le plan mixte de 33 colis ont été créés pour la révision. Les schémas FCL/LCL reprennent la convention du cours.</p><p>La hauteur de 1,50 m est interprétée comme utile pour les colis, conformément au calcul du cours. Si la hauteur comprend la palette, soustraire son épaisseur.</p></article></div>`;
+}
+function currentFlash() {
+ const [front,back] = flashcards[flashIndex];
+ return `<div class="flash" aria-live="polite"><p>Carte ${flashIndex+1} / ${flashcards.length}</p><h3>${front}</h3><p id="flash-back" hidden>${back}</p></div>
+ <div class="actions"><button type="button" data-flash="previous">Précédente</button><button type="button" class="primary" data-flash="reveal" aria-controls="flash-back" aria-expanded="false">Retourner la carte</button><button type="button" data-flash="next">Suivante</button></div>`;
+}
+function trainingExtras() {
+ return `<section class="panel section"><h2>Cartes mémoire</h2><p class="muted">Donne la définition à voix haute avant de retourner la carte.</p><div id="flash">${currentFlash()}</div></section>`;
+}
+function chapter() {
+ return title('Consolidation du chapitre 1','Organisation de la logistique à l’international.')+courseCard(course[4])+
+ `<section class="section narrow"><h2>Vérifie les acquis</h2><div id="chapter-quiz">${chapterQuiz()}</div><div class="actions"><button id="chapter-next">Autre série</button></div></section>`;
+}
+function chapterQuiz() {
+ const ids = chapterRound % 2 ? ['outs','in','out'] : ['up','flows','out'];
+ return ids.map((id,i)=>`<form data-practice="${id}">${question(bank[id],i+1,null,{})}<button class="primary">Vérifier</button><div class="practice-feedback" aria-live="polite"></div></form>`).join('');
+}
+function expressPage() {
+ return title('Révision express','Cinq repères à relire dans les dernières minutes.')+
+ `<div class="grid cards">${express.map(([k,v])=>`<article class="panel"><h2>${k}</h2><p>${v}</p></article>`).join('')}</div><div class="actions">${link('atelier','Refaire les 32 colis',true)}${link('partiel','Faire le partiel blanc')}</div>`;
+}
+function roundFor(key) {
+ return state.rounds[key] ?? null;
+}
+function buildRound(key,variant) {
+ const ids = key==='exam' ? sets.exam : sets[key][variant % sets[key].length].map(id=>[id,bank[id].type==='written'?4:1]);
+ return {variant,ids,answers:{},manual:{},submitted:false, deadline:key==='exam'?Date.now()+25*60*1000:null};
+}
+function shuffleChoiceOptions(q,variant) {
+ const start = (q.id.charCodeAt(0)+q.id.length+variant) % q.answers.length;
+ return q.answers.map((_,i)=>(i+start)%q.answers.length);
+}
+function response(q,value,variant) {
+ const id=q.id;
+ if(q.type==='choice') return `<fieldset><legend class="source">${q.format}</legend>${shuffleChoiceOptions(q,variant).map(i=>`<label class="pick"><input type="radio" name="${id}" value="${i}" ${String(value)===String(i)?'checked':''}>${q.answers[i][0]}</label>`).join('')}</fieldset>`;
+ if(q.type==='match') {
+  const options=q.pairs.map(p=>p[1]).sort((a,b)=>a.localeCompare(b,'fr'));
+  return q.pairs.map(([prompt],i)=>`<label class="field">${prompt}<select name="${id}:${i}"><option value="">Choisir</option>${options.map(option=>`<option ${value?.[i]===option?'selected':''}>${option}</option>`).join('')}</select></label>`).join('');
+ }
+ if(q.type==='written') return `<label>Ta justification<textarea maxlength="1600" name="${id}">${esc(value)}</textarea></label>`;
+ return `<label>Ta réponse<input name="${id}" ${q.type==='number'?'inputmode="numeric"':''} maxlength="80" value="${esc(value)}" autocomplete="off"></label>`;
+}
+function question(q,index,points,round) {
+ const rubric = q.type==='written' ? '<p>Barème : quatre critères à 1 point. Identifie et justifie ta solution, puis traite chacun des éléments demandés.</p>' : '';
+ return `<article class="question"><p class="eyebrow">Question ${index}${points!=null?' · '+points+' pt'+(points>1?'s':''):''} · ${groups[q.topic]}</p><h2>${q.prompt}</h2><p class="source">Objectif · ${q.objective}<br>Format · ${q.format}<br>Critère · ${q.success}</p>${rubric}${response(q,round.answers?.[q.id],round.variant||0)}</article>`;
+}
+function capture(data,q) {
+ if(q.type==='match') return q.pairs.map((_,i)=>data.get(q.id+':'+i)||'');
+ return String(data.get(q.id)||'').trim();
+}
+function hasAnswer(q,value) {
+ return q.type==='match' ? Boolean(value?.some(Boolean)) : Boolean(value);
+}
+function correction(q,raw,score) {
+ const missing=!hasAnswer(q,raw);
+ const caption=missing?'Sans réponse':score===1?'Réponse juste':score===0?'À revoir':'Partiellement juste';
+ const picked=q.type==='choice' && !missing ? q.answers[Number(raw)]?.[0] : raw;
+ if(q.type==='choice') return `<div class="feedback note ${score===1?'good':'bad'}"><strong>${caption}</strong>${picked?`<p>Ton choix · ${esc(picked)}</p>`:''}<ul>${q.answers.map(([a,why],i)=>`<li><strong>${i===0?'Attendu · ':''}${a}</strong> · ${why}</li>`).join('')}</ul></div>`;
+ if(q.type==='match') return `<div class="feedback note ${score===1?'good':'bad'}"><strong>${caption}</strong><ul>${q.pairs.map(([a,b],i)=>`<li>${a} → <strong>${b}</strong>. Ta réponse · ${esc(raw?.[i]||'vide')}</li>`).join('')}</ul><p>${q.explain}</p></div>`;
+ return `<div class="feedback note ${score===1?'good':'bad'}"><strong>${caption}</strong>${!missing?`<p>Ta réponse · ${esc(raw)}</p>`:''}<p>${q.explain}</p></div>`;
+}
+function resultScore(round) {
+ let auto=0, manual=0, pending=0, total=0;
+ for(const [id,n] of round.ids) {
+  const q=bank[id];
+  total+=n;
+  if(q.type!=='written') auto+=evaluate(q,round.answers[id])*n;
+  else if(!hasAnswer(q,round.answers[id])) continue;
+  else if(round.manual[id]===undefined) pending+=n;
+  else manual+=round.manual[id]*n;
+ }
+ return {auto,manual,pending,total};
+}
+function scoreLine(round) {
+ const s=resultScore(round);
+ return `<strong>${fr.format(s.auto+s.manual)} / ${s.total}</strong>${s.pending?' provisoire · '+s.pending+' pt'+(s.pending>1?'s':'')+' à autoévaluer':''}`;
+}
+function recommendations(round) {
+ const wrong = new Set(round.ids.filter(([id])=>evaluate(bank[id],round.answers[id])!==1).map(([id])=>bank[id].topic));
+ if(!wrong.size) return `<p>Tout juste sur cette série. Passe aux cas pratiques ou au partiel blanc.</p><div class="actions">${link('cas','Cas pratiques')}${link('partiel','Partiel blanc',true)}</div>`;
+ return `<p>Revois les notions repérées, puis recommence avec une autre série.</p><div class="chips">${[...wrong].map(topic=>`<a href="#${topic==='pallet'?'atelier':topic==='logistics'?'chapitre1':'cours/fiche-'+topic}">${groups[topic]}</a>`).join('')}</div>`;
+}
+const descriptions = {
+ diagnostic:'10 questions · 5 à 10 minutes. Le résultat indique quoi réviser en priorité.',
+ training:'Reconnais, associe et calcule. Change de série après correction pour t’exercer sur d’autres données.',
+ cases:'Choisis une solution de transport, puis justifie une décision comme en situation professionnelle. L’exercice rédigé rapporte 4 points en autoévaluation.',
+ exam:'25 minutes · 20 points. Le sujet combine théorie, situation professionnelle et calculs.'
+};
+function exercisePage(key,label) {
+ const round=roundFor(key);
+ const intro=title(label,descriptions[key]);
+ const extra=key==='training'?trainingExtras():'';
+ if(!round) return intro+`<section class="panel narrow"><h2>${key==='exam'?'Consignes et barème':'Commencer la série'}</h2>
+ <p>${key==='exam'?'16 points sur le transport maritime et la palettisation, 4 points sur le chapitre 1. Les associations rapportent des points au prorata. La justification sur 4 points est à autoévaluer après validation. Le chrono continue si tu quittes la page.':'Réponds aux questions, puis ouvre le corrigé de la série pour comprendre les erreurs.'}</p>
+ <div class="actions"><button class="primary" id="start-round">${key==='exam'?'Lancer les 25 minutes':'Démarrer'}</button>${key==='diagnostic'?link('cours','Passer au cours'):''}</div></section>`+extra;
+ if(round.submitted) {
+  return intro+`<section class="panel narrow"><h2>Résultat</h2><p id="score" role="status">${scoreLine(round)}</p>${round.timedOut?'<p>Temps écoulé. Les réponses enregistrées ont été remises.</p>':''}
+  ${key==='diagnostic'?recommendations(round):''}<div class="actions"><button id="retry-round">${key==='exam'?'Refaire le partiel':'Essayer une autre série'}</button></div></section>`
+  +`<div class="section narrow">${round.ids.map(([id,points],i)=>{
+   const q=bank[id],raw=round.answers[id];
+   const content=q.type==='written'?writtenCorrection(q,raw,round.manual[id],round.criteria?.[id]||[]):correction(q,raw,evaluate(q,raw));
+   return `<article class="question"><p class="eyebrow">Question ${i+1}${key==='exam'?' · '+points+' pt'+(points>1?'s':''):''}</p><h2>${q.prompt}</h2>${content}</article>`;
+  }).join('')}</div>`+extra;
+ }
+ return intro+`<form id="round-form" class="narrow">${key==='exam'?'<div class="timer" id="timer" role="timer" aria-label="Temps restant"></div>':''}
+ ${round.ids.map(([id,points],i)=>question(bank[id],i+1,key==='exam'?points:null,round)).join('')}
+ <p class="error" id="round-error" role="alert" hidden></p><div class="actions"><button class="primary">${key==='exam'?'Remettre ma copie':'Corriger la série'}</button>${key==='diagnostic'?'<button type="button" id="restart-diagnostic">Recommencer</button>'+link('cours','Passer au cours'):''}</div></form>`+extra;
+}
+function writtenCorrection(q,raw,manual,checked) {
+ const enabled=hasAnswer(q,raw);
+ const options=q.checks.map(([c,n],i)=>`<label class="pick"><input type="checkbox" name="criterion" value="${n}" data-index="${i}" ${checked.includes(i)?'checked':''}>${c} (${n} pt)</label>`).join('');
+ return `<div class="feedback note"><p><strong>Ta réponse</strong> · ${esc(raw||'Sans réponse')}</p><p><strong>Exemple de corrigé</strong> · ${q.example}</p></div>
+ ${enabled?`<form data-self="${q.id}"><fieldset><legend>Autoévaluation</legend>${options}</fieldset><button>Enregistrer les points</button><p role="status" class="manual-status">${manual!==undefined?'Autoévaluation enregistrée.':''}</p></form>`:'<p>Réponse absente · 0 point.</p>'}`;
+}
+function submitRound(key,timedOut=false) {
+ const round=roundFor(key);
+ if(!round || round.submitted) return;
+ round.submitted=true;
+ round.timedOut=timedOut;
+ for(const [id] of round.ids) {
+  const q=bank[id];
+  if(q.type!=='written' && hasAnswer(q,round.answers[id])) mark(q,evaluate(q,round.answers[id]));
+ }
+ save();
+}
+function atelier() {
+ return title('Atelier de palettisation','Compare les orientations autorisées et contrôle la hauteur, la masse et le gerbage.')+`
+ <div class="split"><section class="panel"><h2>Paramètres</h2><form id="palette-form" novalidate>
+ <label class="field">Type de palette<select name="palette"><option value="iso">ISO · 1,20 × 1,00 m</option><option value="euro">EURO · 1,20 × 0,80 m</option></select></label>
+ <div class="formgrid">
+ <label>Longueur du colis (m)<input name="l" value="0,50" inputmode="decimal"></label>
+ <label>Largeur du colis (m)<input name="w" value="0,35" inputmode="decimal"></label>
+ <label>Hauteur du colis debout (m)<input name="h" value="0,30" inputmode="decimal"></label>
+ <label>Hauteur maximale (m)<input name="height" value="1,50" inputmode="decimal"></label>
+ <label>Épaisseur de la palette à déduire (m)<input name="tareHeight" value="0" inputmode="decimal"></label>
+ </div><p class="source">Laisse 0 si la hauteur saisie correspond déjà à la hauteur utile pour les colis.</p>
+ <label class="pick"><input type="checkbox" name="upright"> Colis à maintenir debout</label>
+ <label class="pick"><input type="checkbox" name="stack" checked> Colis gerbables</label>
+ <div class="formgrid">
+ <label>Masse d’un colis (kg)<input name="mass" inputmode="decimal" placeholder="Facultatif"></label>
+ <label>Charge utile de la palette (kg)<input name="limit" inputmode="decimal" placeholder="Facultatif"></label>
+ </div>
+ <p class="source">Saisis les deux masses ensemble. La charge utile exclut la tare de la palette. Décimales avec point ou virgule, jusqu’à 3 chiffres.</p>
+ <div class="actions"><button class="primary">Calculer</button><button type="reset">Reprendre le cas du cours</button></div>
+ <p id="sim-error" role="alert" class="error" hidden></p></form></section>
+ <aside class="panel"><h2>Méthode du cours</h2><ol><li>Mettre toutes les cotes en mètres.</li><li>Diviser la dimension disponible par celle du colis sur chaque axe.</li><li>Arrondir chaque quotient vers le bas, puis multiplier.</li><li>Comparer les orientations autorisées et contrôler le poids, le calage et la stabilité.</li></ol><p class="source">Cours maritime · p. 4–5</p></aside></div>
+ <section id="sim-results" class="panel section" aria-live="polite"></section>
+ <section class="panel section"><h2>Et si on mélange les orientations ?</h2><p class="source">Complément pédagogique · cas ISO du cours</p>
+ <p>En mettant 0,50 m à la verticale, deux rangées de 4 colis occupent 0,70 m de large. La bande restante de 0,30 m reçoit une rangée de 3 colis tournés de 90°. On obtient 11 colis par couche et 3 couches, soit <strong>33 colis sur le papier</strong>.</p>
+ ${planDrawing(1200,1000,mixedPlan(),'Vue de dessus. Deux rangées de quatre colis et une rangée de trois colis tournés.')}
+ <p class="source">Vert : empreinte de 0,30 × 0,35 m. Ocre : empreinte de 0,35 × 0,30 m.</p>
+ <p>Le volume disponible divisé par le volume d’un colis donne une borne théorique de 34. Le plan ci-dessus établit la possibilité géométrique de 33 dans les dimensions données. La faisabilité de 34 reste à démontrer. Confirme la masse, la résistance à l’écrasement, la stabilité, les jeux et le calage avant tout usage réel.</p></section>`;
+}
+function mixedPlan() {
+ return [...Array.from({length:8},(_,i)=>[i%4*300,Math.floor(i/4)*350,300,350,false]),
+  ...Array.from({length:3},(_,i)=>[i*350,700,350,300,true])];
+}
+function planDrawing(L,W,items,label) {
+ return `<div class="plan" role="img" aria-label="${label}" style="aspect-ratio:${L}/${W}">${items.map(([x,y,l,w,rotated])=>`<span aria-hidden="true" class="parcel ${rotated?'rotated':''}" style="left:${x/L*100}%;top:${y/W*100}%;width:${l/L*100}%;height:${w/W*100}%"></span>`).join('')}</div>`;
+}
+function simulate(form) {
+ const values=new FormData(form);
+ const L=1200,W=values.get('palette')==='iso'?1000:800;
+ const box=['l','w','h'].map(k=>scaled(values.get(k)));
+ const height=scaled(values.get('height')), deduction=scaled(values.get('tareHeight'));
+ const rawMass=values.get('mass').trim(),rawLimit=values.get('limit').trim();
+ const weightGiven=Boolean(rawMass||rawLimit);
+ const mass=weightGiven?scaled(rawMass):null,limit=weightGiven?scaled(rawLimit):null;
+ const area=document.getElementById('sim-results'),error=document.getElementById('sim-error');
+ error.hidden=true;
+ area.innerHTML='';
+ if(box.some(d=>!(d>=1 && d<=10000))||!(height>=1 && height<=10000 && deduction>=0 && deduction<height)) {
+  error.textContent='Indique des dimensions entre 0,001 et 10 m. L’épaisseur doit être inférieure à la hauteur maximale.';
+  error.hidden=false;
+  return;
+ }
+ if(weightGiven && !(mass>0 && mass<=1000000000 && limit>0 && limit<=1000000000)) {
+  error.textContent='Renseigne une masse par colis et une charge utile strictement positives (au maximum 1 000 000 kg).';
+  error.hidden=false;
+  return;
+ }
+ const upright=values.has('upright'),stackable=values.has('stack');
+ const H=height-deduction;
+ const results=calculate([L,W,H],box,upright,stackable,mass,limit);
+ const best=results[0];
+ const drawCount=best.counts[0]*best.counts[1];
+ const axes=['L','l','h'];
+ const quotient=(size,d,n,i)=>`${fr.format(size/1000)} ÷ ${fr.format(d/1000)} → ${n}${i===2&&!stackable&&n===1?' (1 couche)':''}`;
+ const rows=results.map((r,i)=>[`${i===0?'<strong>':''}${r.d.map(d=>fr.format(d/1000)).join(' × ')}${i===0?'</strong>':''}`,...[L,W,H].map((space,j)=>quotient(space,r.d[j],r.counts[j],j)),r.count, ...(weightGiven?[r.usable]:[])]);
+ const diagram=best.count && drawCount<=120 ? planDrawing(L,W,Array.from({length:drawCount},(_,i)=>[(i%best.counts[0])*best.d[0],Math.floor(i/best.counts[0])*best.d[1],best.d[0],best.d[1],false]),`Vue de dessus de la grille géométrique, ${best.counts[0]} par ${best.counts[1]} colis par couche.`):'';
+ area.innerHTML=`<h2>Meilleur résultat uniforme · ${fr.format(best.usable)} colis</h2><p id="sim-best">${best.counts.join(' × ')} = <strong>${fr.format(best.count)} colis par géométrie</strong>. Hauteur utile : ${fr.format(H/1000)} m.</p>
+ ${weightGiven?`<p>Limite de masse : ⌊${fr.format(limit/1000)} ÷ ${fr.format(mass/1000)}⌋ = ${fr.format(Math.floor(limit/mass))}. Le minimum est une capacité théorique. Vérifie la répartition des colis conservés.</p>`:'<p class="source">Masse et stabilité à vérifier. Aucun poids n’a été saisi.</p>'}
+ ${!stackable?'<p>Le gerbage est désactivé : au maximum une couche.</p>':''}
+ ${table('Orientations testées',['Orientation L × l × h (m)',...axes.map(a=>a+' · division → entier'),'Géométrie',...(weightGiven?['Avec masse']:[])],rows)}
+ ${diagram}${diagram?'<p class="source">Vue de dessus d’une couche de la meilleure grille géométrique retenue. Les colis peuvent se toucher dans ce calcul.</p>':''}`;
+}
+function render() {
+ clearInterval(timerId);
+ const [hash,anchor]=location.hash.slice(1).split('/');
+ const id=pages[hash]?hash:'accueil';
+ const key=exercises[id];
+ const round=key?roundFor(key):null;
+ if(key==='exam' && round && !round.submitted && Date.now()>=round.deadline) submitRound(key,true);
+ nav.innerHTML=Object.entries(pages).filter(([name])=>name!=='sources').map(([name,label])=>`<a href="#${name}" ${id===name?'aria-current="page"':''}>${label}</a>`).join('');
+ nav.querySelector('[aria-current="page"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
+ const staticPages={accueil:dashboard,cours:lessons,atelier,express:expressPage,chapitre1:chapter,sources:sourcePage};
+ const preserveAnchor=anchor && lastRoute===id && id==='cours' && document.getElementById(anchor);
+ if(!preserveAnchor) main.innerHTML=(storageWarning?'<p class="note">Le navigateur limite le stockage local. La progression peut disparaître à la fermeture.</p>':'')+(key?exercisePage(key,pages[id]):staticPages[id]());
+ lastRoute=id;
+ if(anchor) {
+  const target=document.getElementById(anchor);
+  if(target) {
+   if(target.tagName==='DETAILS') {target.open=true;target.querySelector('summary').focus({preventScroll:true});}
+   else {target.tabIndex=-1;target.focus({preventScroll:true});}
+   target.scrollIntoView({block:'start'});
+  }
+ } else {window.scrollTo(0,0);main.focus({preventScroll:true});}
+ if(id==='atelier') simulate(document.getElementById('palette-form'));
+ if(id==='partiel' && round && !round.submitted) {
+  const update=()=>{
+   const remaining=Math.max(0,Math.ceil((round.deadline-Date.now())/1000));
+   const node=document.getElementById('timer');
+   if(!node) return;
+   node.textContent='Temps restant · '+Math.floor(remaining/60)+':'+String(remaining%60).padStart(2,'0');
+   if(remaining===0){submitRound('exam',true);render();}
+  };
+  timerId=setInterval(update,250);
+  update();
+ }
+}
+function activeExercise() {
+ return exercises[location.hash.slice(1).split('/')[0]];
+}
+function readRoundForm(form,round) {
+ const data=new FormData(form);
+ for(const [id] of round.ids) round.answers[id]=capture(data,bank[id]);
+ save();
+}
+main.addEventListener('input',event=>{
+ const form=event.target.closest('#round-form');
+ if(form) readRoundForm(form,roundFor(activeExercise()));
+});
+main.addEventListener('change',event=>{
+ const form=event.target.closest('#round-form');
+ if(form) readRoundForm(form,roundFor(activeExercise()));
+});
+main.addEventListener('reset',event=>{
+ if(event.target.id==='palette-form') setTimeout(()=>simulate(event.target),0);
+});
+main.addEventListener('submit',event=>{
+ event.preventDefault();
+ const form=event.target;
+ if(form.id==='palette-form'){simulate(form);return;}
+ if(form.id==='round-form'){
+  const key=activeExercise(),round=roundFor(key);
+  readRoundForm(form,round);
+  if(key!=='exam' && !round.ids.some(([id])=>hasAnswer(bank[id],round.answers[id]))) {
+   const error=document.getElementById('round-error');
+   error.textContent='Réponds à au moins une question pour obtenir une correction.';
+   error.hidden=false;
+   return;
+  }
+  if(key==='exam' && round.ids.some(([id])=>!hasAnswer(bank[id],round.answers[id])) && !window.confirm('Certaines questions sont vides. Remettre la copie maintenant ?')) return;
+  submitRound(key,key==='exam'&&Date.now()>=round.deadline);
+  render();
+  return;
+ }
+ if(form.dataset.practice){
+  const q=bank[form.dataset.practice],raw=capture(new FormData(form),q),score=evaluate(q,raw);
+  if(!hasAnswer(q,raw)){form.querySelector('.practice-feedback').innerHTML='<p class="error">Saisis une réponse avant de vérifier.</p>';return;}
+  mark(q,score);
+  form.querySelector('.practice-feedback').innerHTML=correction(q,raw,score);
+  return;
+ }
+ if(form.dataset.self){
+  const q=bank[form.dataset.self],round=roundFor(activeExercise());
+  const selection=[...form.querySelectorAll('input:checked')];
+  const score=selection.reduce((sum,input)=>sum+Number(input.value),0)/q.checks.reduce((sum,c)=>sum+c[1],0);
+  round.manual[q.id]=score;
+  round.criteria ??= {};
+  round.criteria[q.id]=selection.map(input=>Number(input.dataset.index));
+  mark(q,score);
+  form.querySelector('.manual-status').textContent='Autoévaluation enregistrée.';
+  document.getElementById('score').innerHTML=scoreLine(round);
+ }
+});
+main.addEventListener('click',event=>{
+ const button=event.target.closest('button');
+ if(!button)return;
+ if(['start-round','retry-round','restart-diagnostic'].includes(button.id)) {
+  const key=activeExercise();
+  const previous=roundFor(key);
+  if(button.id==='restart-diagnostic' && !window.confirm('Effacer les réponses de la série en cours et changer de série ?')) return;
+  state.rounds[key]=buildRound(key,previous?previous.variant+1:0);
+  save();render();
+ }
+ if(button.id==='reset' && window.confirm('Effacer la progression et les séries enregistrées sur cet appareil ?')){
+  state={records:{},rounds:{}};save();render();
+  document.getElementById('reset-note').textContent='Progression réinitialisée.';
+ }
+ if(button.id==='chapter-next'){
+  chapterRound++;
+  const node=document.getElementById('chapter-quiz');
+  node.innerHTML=chapterQuiz();
+  node.querySelector('input,select').focus();
+ }
+ if(button.dataset.flash==='reveal'){
+  const back=document.getElementById('flash-back');
+  back.hidden=!back.hidden;
+  button.setAttribute('aria-expanded',String(!back.hidden));
+  button.textContent=back.hidden?'Retourner la carte':'Masquer la définition';
+ }
+ if(['previous','next'].includes(button.dataset.flash)){
+  const action=button.dataset.flash;
+  flashIndex=(flashIndex+(action==='next'?1:-1)+flashcards.length)%flashcards.length;
+  const node=document.getElementById('flash');
+  node.innerHTML=currentFlash();
+  node.querySelector('[data-flash="'+action+'"]').focus();
+ }
+});
+document.querySelector('.skip').addEventListener('click',event=>{event.preventDefault();main.focus();});
+window.addEventListener('hashchange',render);
+render();
+</script>
+</body>
+</html>
