@@ -545,11 +545,14 @@ function sourcePage() {
  <article class="panel"><h2>Compléments pédagogiques</h2><p>Les cas, variantes chiffrées, schémas, barèmes et le plan mixte de 33 colis ont été créés pour la révision. Les schémas FCL/LCL reprennent la convention du cours.</p><p>La hauteur de 1,50 m est interprétée comme utile pour les colis, conformément au calcul du cours. Si la hauteur comprend la palette, soustraire son épaisseur.</p></article></div>`;
 }
 function customApplications() {
+ const email='az.consulting.ai.pro@gmail.com';
+ const subject=encodeURIComponent('Demande de tarif pour une application de révision');
+ const body=encodeURIComponent('Bonjour,\n\nJe souhaite un devis pour une application de révision sur mesure.\n\nMatière et niveau :\nPublic :\nSupports disponibles :\nDate souhaitée :\n\nMerci,');
  return title('Applications de révision sur mesure','AZ Consulting conçoit des applications à partir de vos cours, adaptées au niveau de vos apprenants et à leurs objectifs de révision.')+
  `<section class="panel narrow"><h2>Parlons de votre projet</h2><p>Fiches de cours interactives, QCM avec corrections, cas pratiques ou simulations : indiquez les formats utiles à votre public.</p>
- <p>Pour demander un tarif, indiquez la matière, le niveau et l’échéance souhaitée.</p>
- <div class="actions"><a class="button primary" href="https://github.com/AZConsultingPro/mooi-revisions-bts-ci/issues/new">Demander un tarif sur GitHub</a></div>
- <p class="source">La demande est publique et nécessite un compte GitHub. Gardez vos coordonnées et supports privés.</p></section>`;
+ <p>Pour demander un tarif, indiquez la matière, le niveau, les supports disponibles et l’échéance souhaitée.</p>
+ <div class="actions"><a class="button primary" href="mailto:${email}?subject=${subject}&amp;body=${body}">Demander un tarif par e-mail</a></div>
+ <p class="source">${email}</p></section>`;
 }
 function currentFlash() {
  const [front,back] = flashcards[flashIndex];
