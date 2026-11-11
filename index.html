@@ -148,13 +148,14 @@ nav a[aria-current=page],.module-menu>summary.module-active{background:#dcebe0;c
 .module-links{position:absolute;inset-inline-end:0;top:calc(100% + 5px);width:min(224px,80vw);padding:6px!important;background:#fffdf9;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 32px #13363e23}
 .module-links a{min-height:44px;padding:8px 12px}
 main{padding-block:18px 42px}
+main:focus-visible{outline:none}
 h1,h2{font-family:"Bricolage Grotesque","DM Sans",Inter,system-ui,sans-serif}
 h2{letter-spacing:-.032em}
 .hero{display:grid;position:relative;grid-template-columns:minmax(0,1fr);padding:0;min-height:0;border-radius:24px;isolation:isolate;background:#103c42;color:#fff}
 .hero-content{display:flex;flex-direction:column;justify-content:center;padding:28px 22px 24px}
 .hero h1{font-size:clamp(2.65rem,7vw,5.45rem);max-width:9ch;line-height:.98;letter-spacing:-.064em;margin:0 0 14px}
 .hero p{max-width:36ch;color:#e4efe9;margin-bottom:0}
-.hero .kicker{color:#ffd18c;letter-spacing:.105em;margin:0 0 13px}
+.hero .kicker{color:#ffd18c;letter-spacing:.105em;margin:0 0 13px;max-width:none}
 .hero .actions{margin-top:20px;gap:8px}
 .hero .button{border-radius:12px;padding:8px 14px}
 .hero .button:not(.primary){background:#234d52;border-color:#789393}
@@ -204,7 +205,7 @@ footer{background:#f4eee3}
  .study-route p,.study-route .route-action{grid-column:2}
 }
 @media(max-width:360px){
- nav{gap:2px}
+ nav{grid-template-columns:.92fr 1.26fr .78fr .91fr .82fr;gap:2px}
  nav>a,.module-menu>summary{font-size:.71rem;padding-inline:0}
 }
 @media(min-width:660px){
